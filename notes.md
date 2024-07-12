@@ -30,3 +30,19 @@
     * UI enhancement
         - mobile app friendly
         - grid and list view option
+
+
+- folder structure
+    - src 
+        - app
+            - prisma
+                - schema
+            - component
+                - all components
+            - style
+                - all styles
+            - lib (for all hooks)
+            - page.tsx ( main home page )
+            - other pages and there res. folders
+        - client ( has apollo client )
+        - server ( apollo server )
