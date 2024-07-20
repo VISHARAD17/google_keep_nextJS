@@ -9,8 +9,10 @@ const server = new ApolloServer({
   resolvers:myResolver,
 });
 
+const PORT = Number(process.env.PORT);
+
+
 const runServer = async () => {
-    const PORT = Number(process.env.PORT);
     await startStandaloneServer(server, { listen: {port:PORT} })
     console.log("server running on 400");
 }
