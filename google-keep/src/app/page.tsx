@@ -2,8 +2,8 @@ import Link from "next/link";
 
 const Home = () => {
     return(
-    <div>Home page<br/>
-            <Link href={'/newPage'}>Click to go other page</Link>
+        <div>
+            <h1>This is Home Page</h1>     
         </div>
     )
 }

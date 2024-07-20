@@ -37,8 +37,9 @@
         - app
             - prisma
                 - schema
-            - component
-                - all components
+            - ui
+                - component
+                    - all components
             - style
                 - all styles
             - lib (for all hooks)
@@ -46,3 +47,16 @@
             - other pages and there res. folders
         - client ( has apollo client )
         - server ( apollo server )
+
+
+### cmds
+
+- run prisma migrations
+```bash
+npx prisma migrate dev --name init
+```
+
+- prisma generate
+```bash
+npx prisma generate
+```
