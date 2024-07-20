@@ -1,4 +1,4 @@
-- use npm run build only if build files are required
+[ use npm run build only if build files are required ]
 
 
 ### Setup
