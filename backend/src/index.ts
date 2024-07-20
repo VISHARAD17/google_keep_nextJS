@@ -1,8 +1,8 @@
 import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
+
 import myTypeDef from './apis/typedefs';
 import myResolver from './apis/resolvers/';
-import * as dotenv from 'dotenv'
 
 const server = new ApolloServer({
   typeDefs:myTypeDef,
@@ -10,9 +10,8 @@ const server = new ApolloServer({
 });
 
 const runServer = async () => {
-    dotenv.config();
-    const PORT = process.env.PORT ? Number(process.env.PORT) : 400;
-    await startStandaloneServer(server, { listen: {port:PORT } })
+    const PORT = Number(process.env.PORT);
+    await startStandaloneServer(server, { listen: {port:PORT} })
     console.log("server running on 400");
 }
 
