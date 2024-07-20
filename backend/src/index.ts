@@ -1,7 +1,7 @@
 import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
-import myResolver from './apis/resolvers';
 import myTypeDef from './apis/typedefs';
+import myResolver from './apis/resolvers/';
 import * as dotenv from 'dotenv'
 
 const server = new ApolloServer({

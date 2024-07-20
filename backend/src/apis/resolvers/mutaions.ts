@@ -2,12 +2,8 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-const myResolver = {
-    Query: {
-        getAllBooks: () => prisma.book.findMany()
-    },
-
-    Mutation: {
+export const mutations = {
+        Mutation: {
 
         insertBook:async (_:unknown,args:{name:string, author:string}) => {
             const {name, author} = args;
@@ -64,7 +60,5 @@ const myResolver = {
 
         }
     }
-};
 
-export default myResolver;
-
+}
