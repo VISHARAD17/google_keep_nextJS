@@ -1,0 +1,23 @@
+{
+    "name": "backend",
+    "version": "1.0.0",
+    "main": "index.ts",
+    "author": "visharad",
+    "license": "MIT",
+    "dependencies": {
+        "@apollo/server": "^4.10.4",
+        "@prisma/client": "^5.17.0",
+        "graphql": "^16.9.0",
+        "prisma": "^5.17.0",
+        "ts-node": "^10.9.2"
+    },
+    "type": "module",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "tsc",
+        "start": "npm run build && node ./dist/index.js"
+    },
+    "devDependencies": {
+        "typescript": "^5.5.3"
+    }
+}
