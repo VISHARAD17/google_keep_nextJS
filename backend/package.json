@@ -8,16 +8,17 @@
         "@apollo/server": "^4.10.4",
         "@prisma/client": "^5.17.0",
         "graphql": "^16.9.0",
-        "prisma": "^5.17.0",
-        "ts-node": "^10.9.2"
+        "prisma": "^5.17.0"
     },
     "type": "module",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "build": "tsc",
-        "start": "npm run build && node ./dist/index.js"
+        "start": "node --es-module-specifier-resolution=node --loader ts-node/esm ./src/index.ts"
     },
     "devDependencies": {
+        "dotenv": "^16.4.5",
+        "ts-node": "^10.9.2",
         "typescript": "^5.5.3"
     }
 }
