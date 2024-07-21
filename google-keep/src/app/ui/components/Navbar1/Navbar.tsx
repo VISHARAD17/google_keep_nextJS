@@ -1,4 +1,4 @@
-import styles from '@/app/ui/styles/test.module.css'
+import styles from '@/app/ui/styles/navbar.module.css'
 const Navbar = () => {
     return(
         <div>
@@ -8,3 +8,4 @@ const Navbar = () => {
 }
 
 export default Navbar;
+
