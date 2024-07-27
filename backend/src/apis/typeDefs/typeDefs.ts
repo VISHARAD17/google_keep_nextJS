@@ -1,4 +1,4 @@
-const myTypeDef = `
+const myTypeDefs = `
 type Book {
     id: Int
     name:String
@@ -24,4 +24,4 @@ type Mutation {
 
 `;
 
-export default myTypeDef;
+export default myTypeDefs;
