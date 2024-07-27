@@ -9,9 +9,28 @@ type Msg{
     msg: String
 }
 
-# get all books
+type Note {
+    id:Int 
+    name: String
+}
+
+type Tag {
+    id:Int 
+    name: String
+}
+
+type User {
+    id:Int 
+    name: String
+    email: String
+}
+
+# get all data
 type Query {
     getAllBooks: [Book]
+    getAllNotes: [Note]
+    getAllTags: [Tag]
+    getAllUsers: [User]
 }
 
 type Mutation {

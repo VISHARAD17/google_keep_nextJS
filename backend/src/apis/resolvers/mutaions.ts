@@ -1,10 +1,9 @@
 import { PrismaClient } from "@prisma/client";
-
 const prisma = new PrismaClient();
 
 export const mutations = {
         Mutation: {
-
+        // insert one data - Book
         insertBook:async (_:unknown,args:{name:string, author:string}) => {
             const {name, author} = args;
             const newBook = await prisma.book.create({
@@ -59,6 +58,7 @@ export const mutations = {
             return {msg:`updated name and author for id ${id}`}
 
         }
+
     }
 
 }

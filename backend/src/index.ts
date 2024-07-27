@@ -13,8 +13,8 @@ const PORT = Number(process.env.PORT);
 
 
 const runServer = async () => {
-    await startStandaloneServer(server, { listen: {port:PORT} })
-    console.log("server running on 400");
+    const {url} = await startStandaloneServer(server, { listen: {port:PORT} })
+    console.log(`app is running on ${url}`);
 }
 
 runServer();
