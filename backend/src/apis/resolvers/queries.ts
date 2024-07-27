@@ -7,6 +7,6 @@ export const queries = {
         getAllNotes: () => prisma.note.findMany(),
         getAllTags: () => prisma.tag.findMany(),
         getAllUsers: () => prisma.user.findMany()
-    },
+    }
 }
 
