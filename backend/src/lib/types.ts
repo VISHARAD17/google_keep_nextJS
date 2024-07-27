@@ -12,6 +12,12 @@ export interface User {
     name?:string;
 }
 
+export interface Book {
+    id: number;
+    name: string;
+    author: string;
+}
+
 export interface Context {
     prisma: PrismaClient;
     user?: User
