@@ -1,4 +1,4 @@
-import styles from '@/app/ui/styles/navbar.module.css'
+import styles from '@/app/ui/components/Navbar1/navbar.module.css'
 const Navbar = () => {
     return(
         <div>

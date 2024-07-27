@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./ui/components/Navbar1/Navbar";
 const inter = Inter({ subsets: ["latin"] });
+import { CustomApolloProvider } from "./client/apolloProvide";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,8 +18,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-            <Navbar/>
-                {children}
+                <CustomApolloProvider>
+                    {children}
+                </CustomApolloProvider>
         </body>
     </html>
   );
