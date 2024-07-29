@@ -3,7 +3,7 @@ import { mutations } from "./mutaions";
 
 const myResolver = {
     ...queries,
-    ...mutations   
+    ...mutations,
 };
 
 export default myResolver;

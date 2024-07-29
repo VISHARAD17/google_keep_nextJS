@@ -1,5 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
+import { AuthResolvers } from "../../authentication/authResolvers.js";
 
 export const mutations = {
         Mutation: {
@@ -57,7 +58,9 @@ export const mutations = {
 
             return {msg:`updated name and author for id ${id}`}
 
-        }
+        },
+
+        ...AuthResolvers.mutations
 
     }
 

@@ -4,15 +4,15 @@ import myResolver from './apis/resolvers/';
 import myTypeDefs from './apis/typeDefs/';
 import { Context, createContext } from './lib/types';
 
-const server = new ApolloServer<Context>({ typeDefs:myTypeDefs, resolvers:myResolver });
+const server = new ApolloServer({ typeDefs:myTypeDefs, resolvers:myResolver });
 
 const PORT = Number(process.env.PORT) || 400;
 
 
 const runServer = async () => {
-    const { url } = await startStandaloneServer<Context>(server, {
+    const { url } = await startStandaloneServer(server, {
         listen: { port: PORT },
-        context: createContext
+        // context: createContext
     });
     console.log(`App is running on ${url}`);
 };

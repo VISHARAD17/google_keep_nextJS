@@ -20,8 +20,7 @@ export interface Book {
 }
 
 export interface Context {
-    prisma: PrismaClient;
-    user: { id: number } | null;
+    user: User
 }
 
 // export const createContext = ({ req }: { req: Request }) : Promise<Context> => {
@@ -40,6 +39,7 @@ export interface Context {
 export const createContext = async ({res, req}) => {
     let user = null;
     const token = req.headers.authorization || '';
+    // console.log("token : ",token)
     const decoded = verifyToken(token);
     user = {id:decoded.userId};
     return {prisma:new PrismaClient(), user};

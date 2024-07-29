@@ -45,8 +45,9 @@ type Mutation {
     deleteAllData: Msg
     deleteOneById(id:Int): Msg
     updateOneByid(id:Int, updatedName:String, updatedAuthor:String): Msg
-    singUp(name:String, email:String!, password:String!): AuthPayload!
-    logIn(email: String!, password:String!): AuthPayload
+    signUp(name: String!, email: String!, password: String!): AuthPayload!
+    signIn(email: String!, password: String!): AuthPayload!
+    googleSignIn(token: String!): AuthPayload!
 }
 
 `;
