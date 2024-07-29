@@ -57,7 +57,6 @@ export const mutations = {
             })
 
             return {msg:`updated name and author for id ${id}`}
-
         },
     }
 
