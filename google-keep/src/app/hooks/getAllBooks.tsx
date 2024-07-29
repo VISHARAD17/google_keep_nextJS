@@ -11,12 +11,6 @@ const GET_ALL_BOOKS = gql`
   }
 `;
 
-// export interface Book {
-//   id: number;
-//   name: string;
-//   author: string;
-// }
-
 export const useGetAllBooks = () => {
   return useQuery<{ getAllBooks: Book[] }>(GET_ALL_BOOKS);
 }

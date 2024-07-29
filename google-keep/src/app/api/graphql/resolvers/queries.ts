@@ -1,9 +1,10 @@
 import { PrismaClient } from "@prisma/client"
 
-const prisma = new PrismaClient;
+const prisma = new PrismaClient();
+
 export const queries = {
-   Query: {
+Query: {
         getAllBooks: () => prisma.book.findMany(),
-        hello: () => 'Hello world',
-    }
+           },
+
 }
