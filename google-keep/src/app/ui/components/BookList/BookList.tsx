@@ -11,12 +11,12 @@ export const BookList = () => {
 
   return (
     <div>
-      <h1>Books</h1>
+      <h1>Books from DB for id 1</h1>
       <ul>
         {data?.getAllBooks.map((book: Book) => (
           <li key={book.id}>{book.name} written by {book.author}</li>
         ))}
-      </ul>
+             </ul>
     </div>
   );
 }

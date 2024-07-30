@@ -11,6 +11,7 @@ msg: String
 
 type Query {
 getAllBooks: [Book]
+getOneBook(id: Int!): Book
 }
 
 type Mutation {

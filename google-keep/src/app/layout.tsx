@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "./ui/components/Navbar1/Navbar";
+import Navbar from "./ui/components/Navbar/Navbar";
 const inter = Inter({ subsets: ["latin"] });
 import { CustomApolloProvider } from "./client/apolloProvide";
 
@@ -19,6 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
                 <CustomApolloProvider>
+                <Navbar/>
                     {children}
                 </CustomApolloProvider>
         </body>
