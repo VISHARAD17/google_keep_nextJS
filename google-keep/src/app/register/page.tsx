@@ -25,7 +25,8 @@ const Register = () => {
                 }
             })
             if(res.data){
-                router.push("/success")
+                console.log("go to login")
+                router.push("/login")
             }
         } catch(error){
             console.log("some error")

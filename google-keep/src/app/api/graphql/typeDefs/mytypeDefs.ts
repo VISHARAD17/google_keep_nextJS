@@ -19,6 +19,7 @@ password: String
 type Query {
 getAllBooks: [Book]
 getOneBook(id: Int!): Book
+getOneUser(email:String) : User
 }
 
 type Mutation {

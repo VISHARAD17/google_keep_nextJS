@@ -26,6 +26,18 @@ model User {
     name String 
     email String @unique
     password String 
+    tag Tag[]
 
     @@map("t_user")
+}
+
+model Tag {
+    id Int @id @default(autoincrement())
+    name String
+    user User @relation(fields:[userId], references:[id])
+    userId Int 
+
+    @@unique([name, userId])
+
+    @@map("test_tag")
 }

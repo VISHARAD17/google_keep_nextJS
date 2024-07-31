@@ -14,7 +14,8 @@ const Login = () => {
 
     useEffect(() => {
         if(session?.status === 'authenticated'){
-            router.replace("/success");
+            console.log("going to dashboard")
+            router.replace("/dashboard");
         }
     }, [session, router])
 
@@ -26,11 +27,9 @@ const Login = () => {
             email,
             password
         })
-
-        if(res.status === 200){
-            router.replace('/success')
+        if(res.status == 200){
+            router.replace('/dashboard')
         }
-
     }
   return (
         <div>

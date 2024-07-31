@@ -12,6 +12,14 @@ export const queries = {
                 }
             })
             return book[0]
+        },
+        getOneUser: async (email:string) => {
+            const user = await prisma.user.findMany({
+                where:{
+                    email:email
+                }
+            })
+            return user[0];
         }
     },
 

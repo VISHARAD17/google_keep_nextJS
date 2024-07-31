@@ -20,13 +20,12 @@ export default async function RootLayout({
   return (
     <html lang="en">
             <body className={inter.className}>
+                <CustomApolloProvider>
                 <SessionProvider session={session}>
-                    <CustomApolloProvider>
                         <Navbar/>
                         {children}
-                    </CustomApolloProvider>
-
                 </SessionProvider>
+                </CustomApolloProvider>
             </body>
     </html>
   );

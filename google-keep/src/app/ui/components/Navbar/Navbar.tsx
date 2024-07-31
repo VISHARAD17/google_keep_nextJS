@@ -2,9 +2,15 @@
 import { signOut , useSession} from 'next-auth/react';
 
 import Link from 'next/link';
+import { redirect, useRouter } from 'next/navigation';
 
 const Navbar = () => {
     const {data:session} = useSession();
+
+    const handleLogoutButton = async (e:any) => {
+        e.preventDefault();
+        const res = await signOut();
+    }
     return(
         <div>
             <ul>
@@ -17,7 +23,7 @@ const Navbar = () => {
                     </>):
                         ( <>
                             <li>welcome user whose mail id is {session.user?.email}</li>
-                            <li><button onClick={() => {signOut();}}>Logout</button></li>
+                            <li><button onClick={()=> signOut()}>Logout</button></li>
                             </>
                           )}
                 </div>
