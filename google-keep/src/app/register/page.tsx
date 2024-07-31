@@ -43,7 +43,7 @@ const Register = () => {
                 <br/>
                 <p>{status}</p>
                 <Link href={'/login'}>Login with existing account</Link>
-            </div>
+        </div>
     )
 }
 
