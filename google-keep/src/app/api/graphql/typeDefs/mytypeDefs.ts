@@ -9,6 +9,13 @@ type Msg{
 msg: String
 }
 
+type User {
+id: Int 
+name: String 
+email: String 
+password: String
+}
+
 type Query {
 getAllBooks: [Book]
 getOneBook(id: Int!): Book
@@ -20,6 +27,7 @@ insertDummyData: Msg
 deleteAllData: Msg
 deleteOneById(id:Int): Msg
 updateOneByid(id:Int, updatedName:String, updatedAuthor:String): Msg
+registerUser(name:String, email:String, password:String) : User
 }
 
 `;

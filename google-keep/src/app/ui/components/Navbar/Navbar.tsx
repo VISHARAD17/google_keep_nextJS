@@ -10,6 +10,7 @@ const Navbar = () => {
                     <li><Link href={"/"}>Home</Link></li>
                     <li><Link href={"/login"}>login</Link></li>
                     <li><Link href={"/register"}>register</Link></li>
+                    <li><Link href={"/success"}>success</Link></li>
                 </div>
             </ul>
             <div style={{ borderTop: "2px solid black"}}></div>

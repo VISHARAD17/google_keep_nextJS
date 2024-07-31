@@ -56,8 +56,20 @@ export const mutations = {
         })
 
         return {msg:`updated name and author for id ${id}`}
-
     },
+
+    registerUser:async(_:unknown, args:{name:string, email:string, password: string}) => {
+            const {name, email, password} = args;
+            const user = await prisma.user.create({
+                data:{
+                    name,
+                    email,
+                    password
+                }
+            })
+            console.log(`user register with ${user.id}`)
+            return user;
+        }
 
 }
 }
