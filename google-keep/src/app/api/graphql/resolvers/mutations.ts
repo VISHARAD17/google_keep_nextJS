@@ -83,7 +83,7 @@ export const mutations = {
         console.log(`author added with id ${author.id}`)
         return author;
     },
-    // TODO : figure out out to return data of post that is beign added along with
+    // TODO : figure out out to return data of post that is beign added along with its author
     addPostForAuthor: async(_:unknown, args:{name:string, authorId:number}) => {
         const {name, authorId} = args;
         const post = await prisma.post.create({
