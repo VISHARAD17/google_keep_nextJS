@@ -9,15 +9,6 @@ type Msg{
     msg: String
 }
 
-type Note {
-    id:Int 
-    name: String
-}
-
-type Tag {
-    id:Int 
-    name: String
-}
 
 type User {
     id:Int 
@@ -25,18 +16,11 @@ type User {
     email: String
 }
 
-type AuthPayload {
-    token: String!
-    user: User!
-}
 
 # get all data
 type Query {
     getAllBooks: [Book]
-    getAllNotes: [Note]
-    getAllTags: [Tag]
     getAllUsers: [User]
-    me: User
 }
 
 type Mutation {
@@ -45,9 +29,7 @@ type Mutation {
     deleteAllData: Msg
     deleteOneById(id:Int): Msg
     updateOneByid(id:Int, updatedName:String, updatedAuthor:String): Msg
-    signUp(name: String!, email: String!, password: String!): AuthPayload!
-    signIn(email: String!, password: String!): AuthPayload!
-    googleSignIn(token: String!): AuthPayload!
+    insertDummyUsers(name: String, email: String, password: String): Msg
 }
 
 `;

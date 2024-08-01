@@ -1,4 +1,4 @@
-import client from "@/app/client/apolloClient";
+import client from "../../../../client/apolloClient";
 import nextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GithubProvider from 'next-auth/providers/github'

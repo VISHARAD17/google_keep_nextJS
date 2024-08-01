@@ -69,7 +69,31 @@ export const mutations = {
             })
             console.log(`user register with ${user.id}`)
             return user;
-        }
+    },
 
+    registerAuthor: async(_:unknown, args:{name:string, email:string, password:string}) => {
+        const {name, email, password} = args;
+        const author = await prisma.author.create({
+            data:{
+                name, 
+                email,
+                password
+            }
+        });
+        console.log(`author added with id ${author.id}`)
+        return author;
+    },
+    // TODO : figure out out to return data of post that is beign added along with
+    addPostForAuthor: async(_:unknown, args:{name:string, authorId:number}) => {
+        const {name, authorId} = args;
+        const post = await prisma.post.create({
+            data:{
+                name,
+                author:{connect:{id: authorId}}
+            }
+        })
+        console.log("post", post);
+        return post;
+    }
 }
 }

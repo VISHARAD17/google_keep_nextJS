@@ -1,7 +1,7 @@
 'use client'
 
 import Link from "next/link";
-import { REGISTER_USER } from "../hooks/registerUser";
+import { REGISTER_USER } from "../../hooks/registerUser";
 import { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { useRouter } from "next/navigation";

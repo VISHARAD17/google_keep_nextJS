@@ -1,7 +1,6 @@
 'use client';
 
-import { useGetAllBooks, useUniqueBooks } from "../../../hooks/getAllBooks";
-import { Book } from "../../../lib/definitions";
+import { useGetAllBooks, useUniqueBooks } from "../../../../hooks/getAllBooks";
 
 export const OneBookList = () => {
   // const { loading, error, data } = useGetAllBooks();

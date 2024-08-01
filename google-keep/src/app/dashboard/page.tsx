@@ -2,47 +2,45 @@
 import React, { useEffect, useState } from 'react'
 import { BookList } from "../ui/components/BookList/BookList";
 import { OneBookList } from "../ui/components/BookList/OneBookList";
-import { getServerSession } from 'next-auth';
-import { redirect } from 'next/navigation';
 import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
-import { useGetOneUser } from '../hooks/getOneUser';
+import { redirect, useRouter} from 'next/navigation';
 import UserData from '../ui/components/BookList/UserData';
+import { getSession } from 'next-auth/react';
+import { authOptions } from '../api/auth/[...nextauth]/route';
 
 
 const Dashboard = () => {
     // should be able to fetch email from session and print it
     // this is not working for some reason   
-    // const session = await getServerSession();
+    // const session = await getServerSession(authOptions);
     // console.log(session)
     // if(!session){
     //     console.log(session);
     //     redirect('/')
     // }
     
-    const {data:session} = useSession();
+    const {data:session, status} = useSession();
     const router = useRouter();
     const [userEmail, setUserEmail] = useState("");
     
     useEffect(() => {
-        if(!session){
-            router.replace('/')
+        if(status === 'unauthenticated'){
+            console.log(status)
+            console.log("going to main page");
+            router.replace("/")
         }
-        else{
-            setUserEmail(session.user.email)
-
-        }
-    }, [session, router])
+        if(session) setUserEmail(session.user.email);
+    },[session, router, status]);
 
     return (
     <div>
-            {session && (<><BookList/>
+        {session && <><BookList/>
         <br/>
-        One Book List for user email : {userEmail}           
-        <UserData email={userEmail}/>
-        <OneBookList/></>)}
+        One Book List        
+        <UserData email={session.user.email}/>
+        <OneBookList/></> }
     </div>
   )
 }
 
-export default Dashboard
+export default Dashboard;

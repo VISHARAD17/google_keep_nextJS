@@ -1,6 +1,5 @@
 import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
-import { AuthResolvers } from "../../authentication/authResolvers.js";
 
 export const mutations = {
         Mutation: {
@@ -13,7 +12,6 @@ export const mutations = {
                     author
                 }
             });
-
             console.log(`data inserted is name ${name} and author ${author}`);
             return newBook;
         },
@@ -55,13 +53,20 @@ export const mutations = {
                     author:updatedAuthor
                 }
             })
-
             return {msg:`updated name and author for id ${id}`}
 
         },
-
-        ...AuthResolvers.mutations
-
+        /* inserting dummy user data for testing */
+        insertDummyUsers: async (_:unknown, args:{name:string, email:string, password:string}) => {
+            await prisma.user.createMany({
+                data: [
+                    { name: "name1", email:"nam1@gmail.com", password:"123"},
+                    { name: "name2", email:"nam2@gmail.com", password:"123"},
+                    { name: "name2", email:"nam2@gmail.com", password:"123"}
+                ]
+            })
+            return {msg:"dummy user data inserted"}
+        }
     }
 
 }

@@ -1,11 +1,4 @@
 import { PrismaClient } from "@prisma/client";
-import { verifyToken } from "../authentication/auth";
-
-export interface Tag {
-    id:number;
-    name:string;
-    userId:number;
-}
 
 export interface User {
     id:number;
@@ -19,9 +12,6 @@ export interface Book {
     author: string;
 }
 
-export interface Context {
-    user: User
-}
 
 // export const createContext = ({ req }: { req: Request }) : Promise<Context> => {
 //     const token = req.headers.authorization?.split(' ')[1] || '';
@@ -36,12 +26,12 @@ export interface Context {
 //     return {prisma:new PrismaClient(), user} as Context;
 // }
 
-export const createContext = async ({res, req}) => {
-    let user = null;
-    const token = req.headers.authorization || '';
-    // console.log("token : ",token)
-    const decoded = verifyToken(token);
-    user = {id:decoded.userId};
-    return {prisma:new PrismaClient(), user};
-}
+// export const createContext = async ({res, req}) => {
+//     let user = null;
+//     const token = req.headers.authorization || '';
+//     // console.log("token : ",token)
+//     const decoded = verifyToken(token);
+//     user = {id:decoded.userId};
+//     return {prisma:new PrismaClient(), user};
+// }
 
