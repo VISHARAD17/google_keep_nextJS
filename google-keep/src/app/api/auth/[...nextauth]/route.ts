@@ -1,11 +1,8 @@
-import client from "../../../../client/apolloClient";
-import nextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GithubProvider from 'next-auth/providers/github'
 import { Account, User as AuthUser } from "next-auth";
 import { PrismaClient } from "@prisma/client"
 import NextAuth from "next-auth/next";
-import { error } from "console";
 
 export const authOptions = {
     providers:[
