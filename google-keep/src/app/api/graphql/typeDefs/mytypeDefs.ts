@@ -19,7 +19,7 @@ type Tag {
 
 type Note {
     id: Int 
-    name: String
+    title: String
     content: String
     userId: Int
 }
