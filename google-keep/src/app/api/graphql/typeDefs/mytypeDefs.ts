@@ -1,10 +1,4 @@
 export const myTypeDefs = `
-type Book {
-    id: Int
-    name:String
-    author:String
-}
-
 type Msg{
     msg: String
 }
@@ -16,35 +10,45 @@ type User {
     password: String
 }
 
-type Author {
-    id: Int 
-    name: String 
-    email: String 
-    password: String
-    post : [Post]
-}
-
-type Post {
+type Tag {
     id: Int 
     name: String
-    author: Author
-    authorId: Int
+}
+
+type Note {
+    id: Int 
+    name: String
+    content: Author
+    userId: Int
 }
 
 type Query {
-    getAllBooks: [Book]
-    getOneBook(id: Int!): Book
-    getOneUser(email:String) : User
+    # Note
+    getAllNoteForUser(userId: Int): [Note]
+
+    # Tag
+    getAllTagsForUser(userId: Int): [Tag]
+
+    # User
+    getAllUsers: [User]
+    getOneUserById(userId: Int): User
+    getOneUserByEmail(userEmail: String) User
 }
 
 type Mutation {
-    insertBook(name: String, author: String): Book
-    insertDummyData: Msg
-    deleteAllData: Msg
-    deleteOneById(id:Int): Msg
-    updateOneByid(id:Int, updatedName:String, updatedAuthor:String): Msg
-    registerUser(name:String, email:String, password:String) : User
-    addPostForAuthor(name:String, authorId: Int) : Post
-    registerAuthor(name:String, email:String, password:String): Author
+    # note
+    addNote(title:String, content:String, userId: Int): Note
+    deleteNote(noteId: Int): Msg
+    updateNote(noteId:Int, title:String, content: String, )
+
+    # Tag
+    createTag(name:String, userId:Int, noteId:Int) : Tag
+    deleteTag(tagId:String): Msg
+
+    # User
+    createUser(name: String, email:String, password: String)
+    deleteUserAnbItsData(userId: String): Msg
+    updateUser(name: String, email:String, userId: Int): User
+
 }   
 `;

@@ -5,6 +5,7 @@ import GithubProvider from 'next-auth/providers/github'
 import { Account, User as AuthUser } from "next-auth";
 import { PrismaClient } from "@prisma/client"
 import NextAuth from "next-auth/next";
+import { error } from "console";
 
 export const authOptions = {
     providers:[
@@ -27,9 +28,12 @@ export const authOptions = {
                         if(credentials.password == user.password){
                             return user;
                         }
+                        else{
+                            throw new Error('password does not match');
+                        }
                     }
-                }catch{
-
+                }catch (e){
+                    throw new Error(`error while logging in : ${e}`);
                 }
             }
         }),

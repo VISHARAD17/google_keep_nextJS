@@ -5,7 +5,6 @@ const prisma = new PrismaClient();
 export const userMutations = {
 
     createUser: async (_: unknown, args: { name: string, email: string, password: string }) => {
-        // TODO: hash password
         const { name, email, password } = args;
         const newUser = await prisma.user.create({
             data: {
@@ -14,9 +13,8 @@ export const userMutations = {
                 password: password
             }
         })
+        return newUser;
     },
-
-    
 
     deleteUserAndItsData: async(_:unknown, args:{userId:number}) => {
         const {userId} = args;
@@ -40,10 +38,25 @@ export const userMutations = {
         
         try{
             const transaction = await prisma.$transaction([user, notes, tags]);
-            console.log(`all data deleted for user ${userId}`);
+            return{Msg:`all data deleted for user ${userId}`};
         }catch(error){
             console.log(`error occured while deleting with details : ${error}`)
         }
+    },
+
+    updateUser: async(_:unknown, args:{name:string, email:string, userId:number}) => {
+        const {email, name, userId} = args;
+        const updatedUser = await prisma.user.update({
+            where:{
+                id: userId
+            },
+            data:{
+                name:name,
+                email:email
+            }
+        })
+        console.log(`user updated with id ${userId}`)
+        return updatedUser;
     }
 
 }

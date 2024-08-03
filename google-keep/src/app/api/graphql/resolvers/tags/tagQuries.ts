@@ -11,6 +11,8 @@ export const tagQueries = {
                 userId:userId
             }
         })
+        console.log(`All tags fetched for userId ${userId}`);
+        return allTags;
     }
 
 } 
