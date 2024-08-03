@@ -38,7 +38,7 @@ export const userMutations = {
         
         try{
             const transaction = await prisma.$transaction([user, notes, tags]);
-            return{Msg:`all data deleted for user ${userId}`};
+            return{Msg:`all data deleted for user ${userId} and trascation id ${transaction}`};
         }catch(error){
             console.log(`error occured while deleting with details : ${error}`)
         }

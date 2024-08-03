@@ -3,7 +3,7 @@ const prisma = new PrismaClient();
 
 export const tagMutaions = {
     
-    creatTag: async(_:unknown, args:{name:string, userId:number, noteId:number}) => {
+    createTag: async(_:unknown, args:{name:string, userId:number, noteId:number}) => {
         const {name, userId, noteId} = args;
         const tag = await prisma.tag.create({
             data:{
@@ -33,7 +33,6 @@ export const tagMutaions = {
         })
         console.log('tag deleted');
         return {msg: `tag deleted with tagId ${tagId}`};
-
     }
     
 }
