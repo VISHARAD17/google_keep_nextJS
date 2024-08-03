@@ -3,10 +3,8 @@ import React, { useEffect, useState } from 'react'
 import { BookList } from "../ui/components/BookList/BookList";
 import { OneBookList } from "../ui/components/BookList/OneBookList";
 import { useSession } from 'next-auth/react';
-import { redirect, useRouter} from 'next/navigation';
+import {useRouter} from 'next/navigation';
 import UserData from '../ui/components/BookList/UserData';
-import { getSession } from 'next-auth/react';
-import { authOptions } from '../api/auth/[...nextauth]/route';
 
 
 const Dashboard = () => {
@@ -21,8 +19,8 @@ const Dashboard = () => {
     
     const {data:session, status} = useSession();
     const router = useRouter();
-    const [userEmail, setUserEmail] = useState("");
-    
+    const [userEmail, setUserEmail] = useState(""); 
+     
     useEffect(() => {
         if(status === 'unauthenticated'){
             console.log(status)
@@ -37,7 +35,7 @@ const Dashboard = () => {
         {session && <><BookList/>
         <br/>
         One Book List        
-        <UserData email={session.user.email}/>
+        <UserData email={userEmail}/>
         <OneBookList/></> }
     </div>
   )
