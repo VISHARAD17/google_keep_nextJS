@@ -1,5 +1,5 @@
 'use client'
-import { useGetAllNoteByEmail } from '@/hooks/getAllNote';
+import { useGetAllNoteByEmail } from '@/hooks/noteHooks';
 import NoteCard from './NoteCard';
 
 const NoteListCom = ({email}) => {

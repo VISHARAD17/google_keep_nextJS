@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { DELETE_NOTE, UPDATE_NOTE } from './mutations';
 import { useMutation } from '@apollo/client';
 
@@ -10,8 +10,6 @@ export default function NoteCard({ note }) {
     const [editedContent, setEditedContent] = useState(note.content);
     const [deleteNoteFunction] = useMutation(DELETE_NOTE);
     const [updateFunction] = useMutation(UPDATE_NOTE);
-    const [updateTitle, setUpdatedTitle] = useState(note.title)
-    const [updatedContent, setUpdatedContent] = useState(note.content)
 
     const useHandleSave = () => {
         console.log("hitting save")
@@ -26,7 +24,6 @@ export default function NoteCard({ note }) {
             console.log(res)
             setIsEditing(false);
             location.reload();
-            // You might want to add some state update or refetching logic here
         } catch (error) {
             console.error('Failed to update note:', error);
         }
@@ -43,7 +40,6 @@ export default function NoteCard({ note }) {
             });
             console.log(res)
             location.reload()
-            // You might want to add some state update or refetching logic here
         } catch (error) {
             console.error('Failed to delete note:', error);
         }

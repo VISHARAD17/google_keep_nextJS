@@ -1,4 +1,4 @@
-import { useGetTagsForNote } from '@/hooks/getAllNote'
+import { useGetTagsForNote } from '@/hooks/noteHooks'
 import React, { useEffect, useState } from 'react'
 import { Tag } from '@/lib/definitions'
 

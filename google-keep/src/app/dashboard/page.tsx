@@ -1,14 +1,7 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import { BookList } from "../ui/components/BookList/BookList";
-import { OneBookList } from "../ui/components/BookList/OneBookList";
 import { useSession } from 'next-auth/react';
 import {useRouter} from 'next/navigation';
-import UserData from '../ui/components/BookList/UserData';
-import NoteList from '../components/NoteList';
-import { useGetAllNotes } from '@/hooks/getAllNote';
-import { useGetOneUser } from '@/hooks/getOneUser';
-import { useGetUserByEmail } from '@/hooks/registerUser';
 import NoteListCom from './NoteListCom';
 
 const Dashboard = () => {
@@ -24,8 +17,6 @@ const Dashboard = () => {
     const {data:session, status} = useSession();
     const router = useRouter();
     const [userEmail, setUserEmail] = useState(""); 
-    // const {data, error, loading} = useGetUserByEmail({email:userEmail});
-    const [userId, setUserId] = useState(null);
 
     useEffect(() => {
         if(status === 'unauthenticated'){

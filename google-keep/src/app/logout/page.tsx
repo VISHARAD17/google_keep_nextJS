@@ -1,5 +1,5 @@
 'use client'
-import { useGetAllNotes } from '@/hooks/getAllNote';
+import { useGetAllNotes } from '@/hooks/noteHooks';
 import NoteCard from '../dashboard/NoteCard';
 import { useState } from 'react';
 

@@ -1,4 +1,4 @@
-import { useGetAllNoteByEmail, useGetAllNotes } from '@/hooks/getAllNote'
+import { useGetAllNoteByEmail, useGetAllNotes } from '@/hooks/noteHooks'
 import React from 'react'
 import { Note } from '@/lib/definitions';
 import TagList from './TagList';
