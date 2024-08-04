@@ -6,6 +6,7 @@ export const userQueries = {
 
     getAllUsers: async() => {
         const allUsers = await prisma.user.findMany();
+        return allUsers;
     },
     
     getOneUserById: async(_:unknown, args:{userId:number}) => {

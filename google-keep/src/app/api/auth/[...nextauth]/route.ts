@@ -23,7 +23,11 @@ export const authOptions = {
                     })
                     if(user){
                         if(credentials.password == user.password){
-                            return user;
+                            return {
+                                id: user.id,
+                                email:user.email,
+                                name:user.name
+                            }
                         }
                         else{
                             throw new Error('password does not match');

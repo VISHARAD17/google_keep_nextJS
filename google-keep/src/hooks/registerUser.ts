@@ -1,12 +1,31 @@
-import { gql, useMutation } from '@apollo/client';
+import { gql, useMutation, useQuery } from '@apollo/client';
 import { User } from '../lib/definitions';
 
 export const REGISTER_USER = gql`
-    mutation RegisterUser ($name: String!, $email: String!, $password: String!){
-        registerUser(name: $name, email: $email, password: $password){
-            id 
+   mutation createUser($name: String, $email: String, $password: String){
+        createUser(name: $name, email: $email, password: $password) {
             name
             email
-    }
-}
+            password
+            id
+        }
+    }  
 `;
+
+export const GET_USER_BY_EMAIL = gql`
+    query getUserByEmail($userEmail: String){
+        getOneUserByEmail(userEmail: $userEmail){
+            email
+            name
+            id
+        }
+    }
+`
+
+export const useGetUserByEmail = (email) =>{
+    return useQuery<{getOneUserByEmail: User}>(GET_USER_BY_EMAIL, {
+        variables:{
+            userEmail:email,
+        }
+    })
+}

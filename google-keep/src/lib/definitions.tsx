@@ -8,10 +8,10 @@ export type Invoice = {
     status:'pending' | 'paid';
 }; 
 
-export type Book = {
-  id: number;
-  name: string;
-  author: string;
+export interface Tag {
+  id:number;
+  name:string;
+  userId: string;
 }
 
 export interface User  {
@@ -19,4 +19,12 @@ export interface User  {
     name:string;
     email: string
     password: string
+}
+
+export interface Note {
+  id:number;
+  title:string;
+  content:string;
+  userId: number;
+  tags:[Tag]
 }

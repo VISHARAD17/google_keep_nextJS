@@ -22,11 +22,14 @@ type Note {
     title: String
     content: String
     userId: Int
+    tags: [Tag]
 }
 
 type Query {
     # Note
     getAllNoteForUser(userId: Int): [Note]
+    getAllTagsForNote(noteId: Int): Note
+    getAllNotesByEmail(email: String): [Note]
 
     # Tag
     getAllTagsForUser(userId: Int): [Tag]
@@ -45,7 +48,7 @@ type Mutation {
 
     # Tag
     createTag(name:String, userId:Int, noteId:Int) : Tag
-    deleteTag(tagId:String): Msg
+    deleteTag(tagId:Int): Msg
 
     # User
     createUser(name: String, email:String, password: String): User

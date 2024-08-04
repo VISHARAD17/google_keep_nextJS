@@ -21,7 +21,7 @@ export const tagMutaions = {
             }
         })
         console.log("tag added");
-        return {msg:`tag added with tagId ${tag.id} for user ${userId} and note ${noteId}`}
+        return tag;
     },
 
     deleteTag: async(_:unknown, args:{tagId:number}) => {
