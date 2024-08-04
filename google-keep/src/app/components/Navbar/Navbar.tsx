@@ -3,9 +3,8 @@ import { signOut, useSession } from 'next-auth/react';
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { redirect, useRouter } from 'next/navigation';
 
-import googleKeepLogo from '../../../../../public/google_keep_logo.png'
+import googleKeepLogo from '../../../../public/google_keep_logo.png'
 
 const Navbar = () => {
     const { data: session } = useSession();
