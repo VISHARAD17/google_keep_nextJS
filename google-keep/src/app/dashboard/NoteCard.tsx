@@ -45,6 +45,7 @@ export default function NoteCard({ note }) {
         }
     };
 
+
     return (
         <div className={`p-4 rounded-lg shadow-md ${isEditing ? 'bg-blue-100 ring-2 ring-blue-500' : 'bg-white hover:bg-gray-50'}`}>
             {isEditing ? (

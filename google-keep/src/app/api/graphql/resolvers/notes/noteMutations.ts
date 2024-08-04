@@ -48,4 +48,5 @@ export const noteMutations = {
         return updatedNote;
 
     }
+
 }

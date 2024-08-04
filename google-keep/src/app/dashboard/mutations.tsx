@@ -1,4 +1,5 @@
-import { gql, useMutation } from "@apollo/client"
+import { User } from "@/lib/definitions"
+import { gql, useMutation, useQuery } from "@apollo/client"
 
 export const DELETE_NOTE = gql`
     mutation DeleteNote($noteId: Int){
@@ -17,6 +18,26 @@ export const UPDATE_NOTE = gql`
         }
     }
  `
+
+export const ADD_NEW_NOTE = gql`
+    mutation AddNewNode($title: String, $content:String, $userId: Int){
+        addNote(title:$title, content: $content, userId: $userId){
+            id
+            title
+            content
+       }
+    }
+`
+
+export const GET_ONE_USER_BY_EMAIL = gql`
+    mutation GetOneuserByEmail($userEmail: String){
+        getOneUserByEmail(userEmail: $userEmail){
+            id
+            name
+            email
+        }
+    }
+`
 
 export const useDeleteNote = async(id) => {
     const [deleteNoteFunction] = useMutation(DELETE_NOTE) ;
@@ -37,6 +58,14 @@ export const useUpdateNote = async({id, title, content}) => {
             noteId: id, 
             title:title, 
             content:content
+        }
+    })
+}
+
+export const useGetOneUserByEmail = async({email}) => {
+    return useQuery<{getOneUserByEmail: User}>(GET_ONE_USER_BY_EMAIL, {
+        variables:{
+            userEmail: email
         }
     })
 }
