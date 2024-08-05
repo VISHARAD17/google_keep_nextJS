@@ -22,11 +22,10 @@ export default async function RootLayout({
             <body className={inter.className}>
                 
                 <SessionProvider session={session}>
-                <Navbar/>
-                <CustomApolloProvider>
-                
+                    <Navbar/>
+                    <CustomApolloProvider>
                         {children}
-                </CustomApolloProvider>
+                    </CustomApolloProvider>
                 </SessionProvider>
                 
             </body>
