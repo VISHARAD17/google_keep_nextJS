@@ -6,17 +6,12 @@ import AddNoteModal from './AddNoteModel';
 
 const NoteListCom = ({ email }) => {
   console.log(`getting data for email ${email}`);
-  const { data, error, loading } = useGetAllNoteByEmail({ email });
+  const {data} = useGetAllNoteByEmail({ email });
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const userId = data?.getAllNotesByEmail[0].userId;
 
-  const handlClick = () => {
-    console.log("handle click")
-  }
-
-  const handleAddNote = (title, content) => {
-    // Handle adding the new note here
+  const handleAddNote = (title:string, content:string) => {
     console.log('Adding note:', { title, content });
     setIsModalOpen(false);
   };
