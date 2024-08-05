@@ -28,11 +28,15 @@ const Login = () => {
             email,
             password
         })
-        toast.success("Login Successfull")
-        if(res.status == 200){
-            router.replace('/dashboard')
+        if(res.error){
+            toast.error("Authentication error, Check credentials")
         }
-    }
+        if (res.status == 200) {
+            toast.success("Login Successful");
+            setTimeout(() => {
+                router.replace('/dashboard');
+            }, 3000); // 1000 milliseconds = 1 second
+}    }
   return (
         <div className="flex h-[650px]">
             <div className="bg-gray-100 p-7 h-[400px] w-[400px] m-auto rounded-md shadow-lg">

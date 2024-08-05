@@ -11,13 +11,11 @@ const Register = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
-    const [status, setStatus] = useState("status msg")
     const router = useRouter();
-    const [registerUserFunction, {data, loading, error}] = useMutation(REGISTER_USER)    
+    const [registerUserFunction] = useMutation(REGISTER_USER)    
 
     const handleRegisterSubmit = async(e:any) => {
         e.preventDefault();
-        setStatus("Loading");
         try{
             const res = await registerUserFunction({
                 variables:{
@@ -28,6 +26,9 @@ const Register = () => {
             })
             if(res.data){
                 console.log("go to login")
+                toast.success("register successfully !", {
+                    duration: 3000
+                })
                 router.push("/login")
             }
         } catch(error){

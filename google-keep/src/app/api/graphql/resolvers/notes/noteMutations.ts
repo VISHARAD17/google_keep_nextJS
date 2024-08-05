@@ -6,7 +6,6 @@ const prisma = new PrismaClient();
 
 export const noteMutations = {
     
-    // addNote
     addNote: async(_:unknown, args:{title:string, content:string, userId:number}) => {
         const {title, userId, content} = args;
 
@@ -46,7 +45,5 @@ export const noteMutations = {
         })
         console.log(`note updated for id ${noteId}`);
         return updatedNote;
-
     }
-
 }
