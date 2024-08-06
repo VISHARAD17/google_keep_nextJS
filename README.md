@@ -15,8 +15,8 @@
 - nextJS api routes
 
 #### Project Structure :
-```cmd 
-Public
+``` 
+public
 prisma
      |- schema.prisma
 src
