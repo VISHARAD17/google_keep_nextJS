@@ -14,6 +14,31 @@
   REST architecture.
 - nextJS api routes
 
+#### Project Structure :
+```cmd 
+Public
+prisma
+     |- schema.prisma
+src
+  |- app 
+       |- api
+            |-graphql 
+                |- resolvers
+                    |- notes
+                    |- user
+                |- typedefs
+            |- auth
+       |- components
+       |- login
+       |- register
+       |- dashboard
+  |- client
+  |- hooks
+  |- lib 
+  |- utils
+
+```
+
 #### Frontned :
 - React
 - Apollo client
