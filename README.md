@@ -6,15 +6,18 @@
 
 
 #### Features
-- Authentication
+- Authentication : 🔐 **Login** & 🔏 **Register** for creating a new user
+- 📝 **Notes** - Create, Update, Delete notes
+  * 🗒 **Simple Notes** - Update/delet text in a simple text mode
 - server side and client side rendering
-- single end point graph API implementation for efficient CRUD operations
+- single end point graph API implementation for efficient CRUD operations to avoid over-fetching compared to traditional
+  REST architecture.
 - nextJS api routes
 
 #### Frontned :
 - React
 - Apollo client
-- tailwindcss
+- tailwindCSS
 
 #### Backend :
 - NextJS API routes
