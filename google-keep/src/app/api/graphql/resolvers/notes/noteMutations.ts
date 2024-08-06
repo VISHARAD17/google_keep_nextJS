@@ -1,5 +1,3 @@
-import { disconnect } from "process";
-import { mutations } from "../mutations";
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient(); 
