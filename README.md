@@ -1,5 +1,10 @@
 ### Google keep clone using NextJS 14
 
+[1st-pic]('./screenshots/pic1.png')
+[2nd-pic]('./screenshots/pic2.png')
+[3rd-pic]('./screenshots/pic3.png')
+
+
 #### Features
 - Authentication
 - server side and client side rendering
