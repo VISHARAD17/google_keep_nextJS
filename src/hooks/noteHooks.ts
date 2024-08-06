@@ -14,7 +14,7 @@ const GET_ALL_NOTES = gql`
         }
     }
 `
-const GET_ALL_NOTES_BY_EMAIL = gql`
+const GET_ALL_NOTES_AND_USER_BY_EMAIL = gql`
     query getAllEmail($email: String){
         getAllNotesByEmail(email: $email){
           notes {
@@ -62,7 +62,7 @@ export const useGetAllNotes = ({id}) =>{
     })
 }
 export const useGetAllNoteByEmail = ({email}) =>{
-    return useQuery<{getAllNotesByEmail: {user: User, notes: [Note]}}>(GET_ALL_NOTES_BY_EMAIL, {
+    return useQuery<{getAllNotesByEmail: {user: User, notes: [Note]}}>(GET_ALL_NOTES_AND_USER_BY_EMAIL, {
         variables:{
             email:email
         }
