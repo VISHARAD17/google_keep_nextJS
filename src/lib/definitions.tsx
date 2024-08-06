@@ -19,6 +19,7 @@ export interface User  {
     name:string;
     email: string
     password: string
+    tags: [Tag]
 }
 
 export interface Note {

@@ -25,7 +25,7 @@ export const noteQueries = {
                 userId: id
             }
         })
-        return AllNotes;
+        return {notes: AllNotes, user:user};
     },
 
     getAllTagsForNote: async(_:unknown, args:{noteId: number}) => {

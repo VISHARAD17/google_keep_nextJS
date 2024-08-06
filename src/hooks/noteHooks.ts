@@ -1,5 +1,5 @@
 import { gql, useQuery } from "@apollo/client";
-import { Note } from "@/lib/definitions";
+import { Note, User } from "@/lib/definitions";
 
 const GET_ALL_NOTES = gql`
     query getAll($userId: Int){
@@ -17,10 +17,15 @@ const GET_ALL_NOTES = gql`
 const GET_ALL_NOTES_BY_EMAIL = gql`
     query getAllEmail($email: String){
         getAllNotesByEmail(email: $email){
-           title
-           content
-           id
-           userId 
+          notes {
+            title
+            content
+            id 
+            userId
+          } 
+          user {
+            id
+          }
         }
     }
 `
@@ -57,7 +62,7 @@ export const useGetAllNotes = ({id}) =>{
     })
 }
 export const useGetAllNoteByEmail = ({email}) =>{
-    return useQuery<{getAllNotesByEmail: [Note]}>(GET_ALL_NOTES_BY_EMAIL, {
+    return useQuery<{getAllNotesByEmail: {user: User, notes: [Note]}}>(GET_ALL_NOTES_BY_EMAIL, {
         variables:{
             email:email
         }

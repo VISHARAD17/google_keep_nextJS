@@ -63,9 +63,11 @@ export const useUpdateNote = async({id, title, content}) => {
 }
 
 export const useGetOneUserByEmail = async({email}) => {
-    return useQuery<{getOneUserByEmail: User}>(GET_ONE_USER_BY_EMAIL, {
+    const {data, error , loading } = useQuery<{getOneUserByEmail: User}>(GET_ONE_USER_BY_EMAIL, {
         variables:{
             userEmail: email
         }
     })
+
+    return data?.getOneUserByEmail.email;
 }

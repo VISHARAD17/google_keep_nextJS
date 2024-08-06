@@ -25,11 +25,16 @@ type Note {
     tags: [Tag]
 }
 
+type AllData {
+    notes: [Note]
+    user: User
+}
+
 type Query {
     # Note
     getAllNoteForUser(userId: Int): [Note]
     getAllTagsForNote(noteId: Int): Note
-    getAllNotesByEmail(email: String): [Note]
+    getAllNotesByEmail(email: String): AllData
 
     # Tag
     getAllTagsForUser(userId: Int): [Tag]
