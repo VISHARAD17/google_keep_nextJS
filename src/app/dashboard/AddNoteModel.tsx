@@ -1,9 +1,9 @@
 import { useMutation } from '@apollo/client';
 import React, { useState } from 'react';
 import { ADD_NEW_NOTE } from './mutations';
-import toast from 'react-hot-toast';
-
+import { useRouter } from 'next/navigation';
 const AddNoteModal = ({ isOpen, onClose, onAdd , userId}) => {
+    const router = useRouter();
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
 

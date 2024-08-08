@@ -3,13 +3,12 @@
 import React, { useState } from 'react';
 import { DELETE_NOTE, DELETE_TAG, UPDATE_NOTE } from './mutations';
 import { useMutation, useQuery } from '@apollo/client';
-import AddNoteModal from './AddNoteModel';
 import AddTagModal from './AddTagModel';
-import ClearIcon from '@mui/icons-material/Clear';
 import TagList from '../components/TagList/TagList';
 import { Toaster } from 'react-hot-toast';
 import EditIcon from '@mui/icons-material/Edit';
 import AddIcon from '@mui/icons-material/Add';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 export default function NoteCard({ note }) {
     const [isEditing, setIsEditing] = useState(false);
@@ -82,10 +81,16 @@ export default function NoteCard({ note }) {
                             Save
                         </button>
                         <button
+                            className="mt-2 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors duration-300" 
+                            onClick={() => setIsEditing(false) }
+                        >
+                            Close
+                        </button>
+                        <button
                             className="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600 transition-colors duration-300"
                             onClick={useHandleDelete}
                         >
-                            Delete
+                            <DeleteIcon/>
                         </button>
                     </div>
                 </div>

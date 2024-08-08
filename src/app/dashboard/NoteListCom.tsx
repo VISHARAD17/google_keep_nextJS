@@ -4,7 +4,6 @@ import NoteCard from './NoteCard';
 import { useState } from 'react';
 import AddNoteModal from './AddNoteModel';
 import AddIcon from '@mui/icons-material/Add';
-import toast from 'react-hot-toast';
 
 const NoteListCom = ({ email, sort }) => {
   console.log(`getting data for email ${email}`);
