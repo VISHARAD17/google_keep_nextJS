@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { ADD_NEW_NOTE } from './mutations';
 import { useRouter } from 'next/navigation';
 const AddNoteModal = ({ isOpen, onClose, onAdd , userId}) => {
-    const router = useRouter();
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
 
@@ -12,19 +11,20 @@ const AddNoteModal = ({ isOpen, onClose, onAdd , userId}) => {
     const handleSubmit = async () => {
         console.log("here from addNoteModel component")
         console.log(title, content)
-        onAdd(title, content);
-        setTitle('');
-        setContent('');
-
+        
         try{
             const res = await addNoteFunction({
                 variables:{
                     userId: userId,
                     title: title,
                     content:content
-                }
-            })
-            location.reload();
+                } })
+            // location.reload();
+
+            // const newNote = res.data?.note
+            onAdd(title, content);
+            setTitle('');
+            setContent('');
 
         }catch(err){
             console.log(`error while saving note, error : ${err}`);
