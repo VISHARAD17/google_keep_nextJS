@@ -1,20 +1,32 @@
 'use client'
+import { useMutation } from "@apollo/client"
 import { useState } from "react"
+import { ADD_NEW_TAG_FOR_NOTE } from "./mutations"
 
-const AddTagMode = ({isOpen, onClose, onAdd, userId, noteId }) => {
+const AddTagModal = ({isOpen, onClose, onAdd, userId, noteId }) => {
     const [tag, setTag] = useState('')
 
-    const handleSubmit = () => {
+    const [addTagFunction] = useMutation(ADD_NEW_TAG_FOR_NOTE);
+
+    const handleSubmit = async () => {
         console.log(tag);
         onAdd(tag);
 
         try{
-            const res = 
+            const res = await addTagFunction({
+                variables:{
+                    name:tag,
+                    userId:userId,
+                    noteId: noteId
+                }
+            })
+            console.log(res);
 
         }catch(e){
             console.log("error during saving tag");
         }
     }
+    if(!isOpen) return null;
 
     return (
         <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
@@ -32,7 +44,7 @@ const AddTagMode = ({isOpen, onClose, onAdd, userId, noteId }) => {
                         onClick={handleSubmit}
                         className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors duration-300"
                     >
-                        Add
+                        Add Tag
                     </button>
                     <button
                         onClick={onClose}
@@ -45,3 +57,5 @@ const AddTagMode = ({isOpen, onClose, onAdd, userId, noteId }) => {
         </div>
     );
 }
+
+export default AddTagModal;

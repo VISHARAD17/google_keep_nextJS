@@ -40,7 +40,10 @@ export const GET_ONE_USER_BY_EMAIL = gql`
 `
 export const ADD_NEW_TAG_FOR_NOTE = gql`
     mutation CreateTag($name: String, $userId: Int, $noteId: Int){
-        createTag(name: $name, userId: $userId, noteId: $noteId)
+        createTag(name: $name, userId: $userId, noteId: $noteId){
+            name
+            id
+}
 }
 `
 
