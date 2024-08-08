@@ -1,4 +1,4 @@
-import { User, Note, Tag } from "@/lib/definitions"
+import { User} from "@/lib/definitions"
 import { gql, useMutation, useQuery } from "@apollo/client"
 
 export const DELETE_NOTE = gql`
@@ -96,7 +96,7 @@ export const useUpdateNote = async({id, title, content}) => {
     })
 }
 
-export const useGetAllTags = (noteId) => {
+export const useGetAllTags = (noteId:number) => {
   const { loading, error, data } = useQuery(GET_ALL_TAGS_FOR_NOTE, {
     variables: { noteId },
   });
