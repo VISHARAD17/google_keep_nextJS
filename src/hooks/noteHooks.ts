@@ -69,7 +69,7 @@ export const useGetAllNoteByEmail = ({email}) =>{
     })
 }
 
-export const useGetTagsForNote = ({id}) =>{
+export const useGetTagForNote = ({id}) =>{
     return useQuery<{getAllTagsForNote: Note}>(GET_ALL_TAGS_FOR_NOTE, {
         variables:{
             noteId: id

@@ -33,7 +33,7 @@ type AllData {
 type Query {
     # Note
     getAllNoteForUser(userId: Int): [Note]
-    getAllTagsForNote(noteId: Int): Note
+    getAllTagsForNote(noteId: Int): [Tag]
     getAllNotesByEmail(email: String): AllData
 
     # Tag

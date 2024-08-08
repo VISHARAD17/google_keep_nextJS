@@ -2,6 +2,7 @@
 import { useMutation } from "@apollo/client"
 import { useState } from "react"
 import { ADD_NEW_TAG_FOR_NOTE } from "./mutations"
+import toast, { Toaster } from "react-hot-toast"
 
 const AddTagModal = ({isOpen, onClose, onAdd, userId, noteId }) => {
     const [tag, setTag] = useState('')
@@ -20,10 +21,12 @@ const AddTagModal = ({isOpen, onClose, onAdd, userId, noteId }) => {
                     noteId: noteId
                 }
             })
-            console.log(res);
+            console.log(res.errors);
+            // location.reload();
 
         }catch(e){
-            console.log("error during saving tag");
+            toast.error(`errpr saving ${e}`);
+            console.log(`error saving : ${e}`);
         }
     }
     if(!isOpen) return null;
@@ -54,6 +57,7 @@ const AddTagModal = ({isOpen, onClose, onAdd, userId, noteId }) => {
                     </button>
                 </div>
             </div>
+            <Toaster/>
         </div>
     );
 }

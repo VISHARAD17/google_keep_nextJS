@@ -1,4 +1,4 @@
-import { User } from "@/lib/definitions"
+import { User, Note, Tag } from "@/lib/definitions"
 import { gql, useMutation, useQuery } from "@apollo/client"
 
 export const DELETE_NOTE = gql`
@@ -43,8 +43,26 @@ export const ADD_NEW_TAG_FOR_NOTE = gql`
         createTag(name: $name, userId: $userId, noteId: $noteId){
             name
             id
+        }
+    }
+`
+
+export const DELETE_TAG = gql`
+    mutation DeleteTag($tagId: Int){
+        deleteTag(tagId: $tagId){
+            msg
 }
 }
+`
+
+
+const GET_ALL_TAGS_FOR_NOTE = gql`
+    query GetAllTagsForNote($noteId: Int) {
+        getAllTagsForNote(noteId: $noteId) {
+            id
+            name
+        }
+    }
 `
 
 export const useDeleteNote = async(id) => {
@@ -69,6 +87,14 @@ export const useUpdateNote = async({id, title, content}) => {
         }
     })
 }
+
+export const useGetAllTags = (noteId) => {
+  const { loading, error, data } = useQuery(GET_ALL_TAGS_FOR_NOTE, {
+    variables: { noteId },
+  });
+
+  return { loading, error, tags: data?.getAllTagsForNote || [] }; // Directly returning the tags array
+};
 
 export const useGetOneUserByEmail = async({email}) => {
     const {data, error , loading } = useQuery<{getOneUserByEmail: User}>(GET_ONE_USER_BY_EMAIL, {

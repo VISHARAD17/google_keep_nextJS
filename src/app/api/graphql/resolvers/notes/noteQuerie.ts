@@ -39,6 +39,6 @@ export const noteQueries = {
             }
         })
         console.log(allTags.tags)
-        return allTags;
+        return allTags.tags;
     },
 }
