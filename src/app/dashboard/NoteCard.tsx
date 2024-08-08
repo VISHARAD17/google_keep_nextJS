@@ -8,6 +8,8 @@ import AddTagModal from './AddTagModel';
 import ClearIcon from '@mui/icons-material/Clear';
 import TagList from '../components/TagList/TagList';
 import { Toaster } from 'react-hot-toast';
+import EditIcon from '@mui/icons-material/Edit';
+import AddIcon from '@mui/icons-material/Add';
 
 export default function NoteCard({ note }) {
     const [isEditing, setIsEditing] = useState(false);
@@ -56,9 +58,11 @@ export default function NoteCard({ note }) {
     }
 
     return (
-        <div className={`p-4 rounded-lg shadow-md ${isEditing ? 'bg-blue-100 ring-2 ring-blue-500' : 'bg-white hover:bg-gray-50'}`}>
+        <div>
             {isEditing ? (
-                <>
+                
+        <div className={`p-4 rounded-lg shadow-md ${isEditing ? 'bg-blue-100 ring-2 ring-blue-500' : 'bg-white hover:bg-gray-50'}`}>
+
                     <input
                         className="w-full p-2 mb-2 border rounded text-lg font-semibold"
                         value={editedTitle}
@@ -84,26 +88,26 @@ export default function NoteCard({ note }) {
                             Delete
                         </button>
                     </div>
-                </>
+                </div>
             ) : (
-                <>
+        <div className={`p-4 rounded-lg shadow-md ${isEditing ? 'bg-blue-100 ring-2 ring-blue-500' : 'bg-white hover:bg-gray-50'}`}>
                     <h3 className="text-lg font-semibold mb-2">{note.title}</h3>
-                    <p className="text-gray-600">
+                    <div className="text-gray-600 break-words">
                         {note.content}
-                    </p>
+                    </div>
                         <TagList noteId={note.id}/>
                         <div className='flex justify-between'>
                         <button
                         className="mt-2 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors duration-300"
                         onClick={() => setIsEditing(true)}
                         >
-                        Edit
+                        <EditIcon/>
                     </button>
                     <button
                             className="mt-2 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors duration-300" 
                             onClick={() => setIsModelOpen(true) }
                         >
-                            add Tag
+                            <AddIcon/>
                         </button>
                     </div> 
                     <AddTagModal
@@ -114,7 +118,7 @@ export default function NoteCard({ note }) {
                         noteId={note.id}
                     />
                     <Toaster/>
-                </>
+                </div>
             )}
             </div>
     );

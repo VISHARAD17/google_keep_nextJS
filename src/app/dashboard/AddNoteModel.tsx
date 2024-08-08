@@ -1,6 +1,7 @@
 import { useMutation } from '@apollo/client';
 import React, { useState } from 'react';
 import { ADD_NEW_NOTE } from './mutations';
+import toast from 'react-hot-toast';
 
 const AddNoteModal = ({ isOpen, onClose, onAdd , userId}) => {
     const [title, setTitle] = useState('');
@@ -23,7 +24,6 @@ const AddNoteModal = ({ isOpen, onClose, onAdd , userId}) => {
                     content:content
                 }
             })
-            console.log(`added ${res.data}`)
             location.reload();
 
         }catch(err){

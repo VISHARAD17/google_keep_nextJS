@@ -18,6 +18,7 @@ const Dashboard = () => {
     const {data:session, status} = useSession();
     const router = useRouter();
     const [userEmail, setUserEmail] = useState(""); 
+    const [sort, setSort] = useState("default");
 
     useEffect(() => {
         if(status === 'unauthenticated'){
@@ -38,7 +39,7 @@ const Dashboard = () => {
                 <AllTagList email={userEmail}/>
                 </div>  
                     
-                <div className="flex-1 bg-gray-200 p-4"><NoteListCom email={userEmail}/></div>
+                <div className="flex-1 bg-gray-200 p-4"><NoteListCom sort={sort} email={userEmail}/></div>
             </div>
 </> }
     </div>
