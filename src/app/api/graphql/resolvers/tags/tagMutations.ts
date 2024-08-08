@@ -5,6 +5,31 @@ export const tagMutaions = {
     
     createTag: async(_:unknown, args:{name:string, userId:number, noteId:number}) => {
         const {name, userId, noteId} = args;
+        // if does not exists then create 
+        const tagOld = await prisma.tag.findUnique({
+            where:{
+                name:name,
+                userId:userId
+            }
+        })
+        if(tagOld) {
+            // attched to the note 
+            const res = prisma.tag.update({
+                where:{
+                    name:name,
+                    userId:userId
+                },
+                data:{
+                    notes:{
+                        connect:[
+                            {id: noteId}
+                        ]
+                    }
+                }
+            })
+            return res;
+        }
+        // else create one
         const tag = await prisma.tag.create({
             data:{
                 name:name,

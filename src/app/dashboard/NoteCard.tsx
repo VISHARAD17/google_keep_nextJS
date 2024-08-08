@@ -69,6 +69,7 @@ export default function NoteCard({ note }) {
                         value={editedContent}
                         onChange={(e) => setEditedContent(e.target.value)}
                     />
+                        <TagList noteId={note.id}/>
                     <div className="flex justify-between">
                         <button
                             className="px-3 py-1 bg-green-500 text-white rounded hover:bg-green-600 transition-colors duration-300"

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useSession } from 'next-auth/react';
 import {useRouter} from 'next/navigation';
 import NoteListCom from './NoteListCom';
+import AllTagList from '../components/TagList/AllTagList';
 
 const Dashboard = () => {
     // should be able to fetch from server side session for from client side session
@@ -30,7 +31,16 @@ const Dashboard = () => {
     
     return (
     <div>
-        {session && <NoteListCom email={userEmail}/> }
+        {session &&
+
+                <> <div className="flex min-h-screen">
+            <div className="w-full max-w-[150px] p-4 bg-gray-100">
+                <AllTagList email={userEmail}/>
+                </div>  
+                    
+                <div className="flex-1 bg-gray-200 p-4"><NoteListCom email={userEmail}/></div>
+            </div>
+</> }
     </div>
   )
 }

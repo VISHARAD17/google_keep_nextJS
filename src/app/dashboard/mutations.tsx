@@ -64,6 +64,14 @@ const GET_ALL_TAGS_FOR_NOTE = gql`
         }
     }
 `
+const  GET_ALL_TAGS_FOR_USER = gql`
+    query GetAllTagsForUser($userId: Int){
+        getAllTagsForUser(userId: $userId){
+            id 
+            name
+        }
+    }
+`
 
 export const useDeleteNote = async(id) => {
     const [deleteNoteFunction] = useMutation(DELETE_NOTE) ;
@@ -104,4 +112,14 @@ export const useGetOneUserByEmail = async({email}) => {
     })
 
     return data?.getOneUserByEmail.email;
+}
+
+export const useGetAllTagsForUser = (userId) => {
+    const {data} = useQuery(GET_ALL_TAGS_FOR_USER, {
+        variables:{
+            userId: userId
+        }
+    });
+
+    return data?.getAllTagsForUser || [];
 }

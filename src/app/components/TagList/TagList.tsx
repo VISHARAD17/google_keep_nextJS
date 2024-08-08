@@ -1,6 +1,7 @@
 import { useGetAllTags } from "@/app/dashboard/mutations";
 import { DELETE_TAG } from '@/hooks/tag';
 import { useMutation } from "@apollo/client";
+import CancelIcon from '@mui/icons-material/Cancel';
 
 const TagList = ({noteId}) => {
     console.log(`getting tags for noteId ${noteId}`)
@@ -18,6 +19,7 @@ const TagList = ({noteId}) => {
                 tagId: id
             }
         })
+        location.reload();
         }catch(error){
             console.log(`${error}`);
         }
@@ -27,13 +29,20 @@ const TagList = ({noteId}) => {
     return(
         <div>
             <p>Tags:</p>
-            {tags.tags.map((tag:any) => (
-            <li key={tag.id}>
-                <p>{tag.name} {tag.id}</p>
-                <button onClick={() => handleDelete({id:tag.id})} className="bg-gray-800 text-white">delete</button>
-            </li>
-            ))}
+            <div className="flex flex-wrap space-x-2">
+                {tags.tags.map((tag) => (
+                    <div
+                    key={tag.id}
+                    className="flex items-center bg-green-100 text-green-700 px-3 py-1 rounded-full mb-2"
+                    >
+                    <span>{tag.name}</span>
+                    <CancelIcon
+                        className="ml-2 cursor-pointer"
+                        onClick={() => handleDelete({id:tag.id})}
+          />
         </div>
+      ))}
+    </div>        </div>
     )
 }
 
