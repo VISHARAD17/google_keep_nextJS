@@ -48,11 +48,11 @@ export const ADD_NEW_TAG_FOR_NOTE = gql`
 `
 
 export const DELETE_TAG = gql`
-    mutation DeleteTag($tagId: Int){
-        deleteTag(tagId: $tagId){
+    mutation DeleteTag($tagId: Int, $noteId: Int){
+        deleteTag(tagId: $tagId, noteId: $noteId){
             msg
-}
-}
+        }
+    }
 `
 
 

@@ -1,5 +1,5 @@
 import { useGetAllTags } from "@/app/dashboard/mutations";
-import { DELETE_TAG } from '@/hooks/tag';
+import { DELETE_TAG } from '../../dashboard/mutations';
 import { useMutation } from "@apollo/client";
 import CancelIcon from '@mui/icons-material/Cancel';
 
@@ -10,13 +10,14 @@ const TagList = ({noteId}) => {
 
     const [deleteTagFunction] = useMutation(DELETE_TAG);
 
-    const handleDelete = ({id:id}) => {
+    const handleDelete = ({id:id, noteId:noteId}) => {
         console.log(`deleted note for ${id}`);
 
         try{
         const res = deleteTagFunction({
             variables:{
-                tagId: id
+                tagId: id,
+                noteId:noteId
             }
         })
         location.reload();
@@ -38,7 +39,7 @@ const TagList = ({noteId}) => {
                     <span>{tag.name}</span>
                     <CancelIcon
                         className="ml-2 cursor-pointer"
-                        onClick={() => handleDelete({id:tag.id})}
+                        onClick={() => handleDelete({id:tag.id, noteId:noteId})}
           />
         </div>
       ))}

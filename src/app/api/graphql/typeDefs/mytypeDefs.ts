@@ -53,7 +53,7 @@ type Mutation {
 
     # Tag
     createTag(name:String, userId:Int, noteId:Int) : Tag
-    deleteTag(tagId:Int): Msg
+    deleteTag(tagId:Int, noteId:Int): Msg
 
     # User
     createUser(name: String, email:String, password: String): User

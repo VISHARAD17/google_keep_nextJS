@@ -1,4 +1,6 @@
+import { dialogContentClasses } from "@mui/material";
 import { PrismaClient } from "@prisma/client"
+import { disconnect } from "process";
 const prisma = new PrismaClient();
 
 export const tagMutaions = {
@@ -49,16 +51,30 @@ export const tagMutaions = {
         return tag;
     },
 
-    deleteTag: async(_:unknown, args:{tagId:number}) => {
-        const {tagId} = args;
-        const tag = await prisma.tag.delete({
+    deleteTag: async(_:unknown, args:{tagId:number, noteId: number}) => {
+        const {tagId, noteId} = args;
+        // const tag = await prisma.tag.delete({
+        //     where:{
+        //         id:tagId
+        //     }
+        // })
+
+        // disconnect instead of delete
+        const notes = await prisma.note.update({
             where:{
-                id:tagId
+                id:noteId
+            },
+            data:{
+                tags:{
+                    disconnect:[
+                        {id:tagId}
+                    ]                }
             }
         })
+              
         console.log('tag deleted');
         return {msg: `tag deleted with tagId ${tagId}`};
-    }
+    },
     
 }
 

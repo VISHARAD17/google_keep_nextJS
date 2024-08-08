@@ -41,7 +41,7 @@ model Tag {
     name String  @unique
     user User @relation(fields: [userId], references: [id])
     userId Int
-    notes Note[]
+    notes Note[] 
 
     @@map("t_tag")
 
