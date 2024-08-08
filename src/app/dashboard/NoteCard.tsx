@@ -10,7 +10,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-export default function NoteCard({ note }) {
+export default function NoteCard({ note , onDelete, onUpdate}) {
     const [isEditing, setIsEditing] = useState(false);
     const [editedTitle, setEditedTitle] = useState(note.title);
     const [editedContent, setEditedContent] = useState(note.content);
@@ -28,9 +28,11 @@ export default function NoteCard({ note }) {
                     content: editedContent
                 }
             });
-            console.log(res)
+            console.log(res);
+
             setIsEditing(false);
-            location.reload();
+            onUpdate({ ...note, title: editedTitle, content: editedContent });
+            // location.reload();
         } catch (error) {
             console.error('Failed to update note:', error);
         }
@@ -45,8 +47,9 @@ export default function NoteCard({ note }) {
                     noteId: note.id
                 }
             });
-            console.log(res)
-            location.reload()
+            console.log(res);
+            onDelete(note.id);
+            // location.reload()
         } catch (error) {
             console.error('Failed to delete note:', error);
         }

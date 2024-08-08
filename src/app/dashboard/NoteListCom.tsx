@@ -26,6 +26,17 @@ const NoteListCom = ({ email, sort }) => {
     },[data]);
 
 
+    const handleUpdateNote = (updatedNote) => {
+    setNoteData((prevNotes) =>
+        prevNotes.map((note) => (note.id === updatedNote.id ? updatedNote : note))
+    );
+};
+
+const handleDeleteNote = (noteId) => {
+    setNoteData((prevNotes) => prevNotes.filter((note) => note.id !== noteId));
+};
+
+
     return (
         <div className="p-4">
             <div className="grid grid-cols-3 gap-2">
@@ -33,7 +44,12 @@ const NoteListCom = ({ email, sort }) => {
                     <NoteCard key={note.id} note={note} />
                 ))}**/}
                 {noteData.map((note:any) => (
-                <NoteCard key={note.id} note={note} />
+                <NoteCard key={note.id} 
+                        note={note} 
+                        onDelete={handleDeleteNote}
+                        onUpdate={handleUpdateNote}
+                    />
+
                 ))}
 
             </div>
