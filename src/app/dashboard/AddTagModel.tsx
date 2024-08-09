@@ -4,9 +4,9 @@ import { useState } from "react"
 import { ADD_NEW_TAG_FOR_NOTE } from "./mutations"
 import toast, { Toaster } from "react-hot-toast"
 
-const AddTagModal = ({isOpen, onClose, onAdd, userId, noteId }) => {
+const AddTagModal = ({isOpen, onClose, onAdd, userId, noteId}) => {
     const [tag, setTag] = useState('')
-
+    
     const [addTagFunction] = useMutation(ADD_NEW_TAG_FOR_NOTE);
 
     const handleSubmit = async () => {

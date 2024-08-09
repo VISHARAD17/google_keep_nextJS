@@ -2,6 +2,7 @@ import { useGetAllTags } from "@/app/dashboard/mutations";
 import { DELETE_TAG } from '../../dashboard/mutations';
 import { useMutation } from "@apollo/client";
 import CancelIcon from '@mui/icons-material/Cancel';
+import { useEffect, useState } from "react";
 
 const TagList = ({noteId}) => {
     console.log(`getting tags for noteId ${noteId}`)
@@ -10,9 +11,11 @@ const TagList = ({noteId}) => {
 
     const [deleteTagFunction] = useMutation(DELETE_TAG);
 
+
+   
+
     const handleDelete = ({id:id, noteId:noteId}) => {
         console.log(`deleted note for ${id}`);
-
         try{
         const res = deleteTagFunction({
             variables:{
