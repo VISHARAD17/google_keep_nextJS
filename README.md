@@ -9,6 +9,7 @@
 - Authentication : 🔐 **Login** & 🔏 **Register** for creating a new user
 - 📝 **Notes** - Create, Update, Delete notes
   * 🗒 **Simple Notes** - Update/delet text in a simple text mode
+  * add **Tags** for notes - ( add / remove )
 - server side and client side rendering
 - single end point graph API implementation for efficient CRUD operations to avoid over-fetching compared to traditional
   REST architecture.
