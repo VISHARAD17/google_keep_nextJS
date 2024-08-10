@@ -1,20 +1,17 @@
 'use client'
 
 import React, { useState } from 'react';
-import { DELETE_NOTE, UPDATE_NOTE, useGetAllTags } from './mutations';
+import { DELETE_NOTE, UPDATE_NOTE } from './mutations';
 import { useMutation } from '@apollo/client';
-import AddTagModal from './AddTagModel';
 import TagList from '../components/TagList/TagList';
 import { Toaster } from 'react-hot-toast';
 import EditIcon from '@mui/icons-material/Edit';
-import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 export default function NoteCard({ note , onDelete, onUpdate}) {
     const [isEditing, setIsEditing] = useState(false);
     const [editedTitle, setEditedTitle] = useState(note.title);
     const [editedContent, setEditedContent] = useState(note.content);
-    const [isModalOpen, setIsModelOpen] = useState(false);
     const [deleteNoteFunction] = useMutation(DELETE_NOTE);
     const [updateFunction] = useMutation(UPDATE_NOTE);
 
