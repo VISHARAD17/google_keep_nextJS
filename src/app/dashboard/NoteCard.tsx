@@ -55,10 +55,6 @@ export default function NoteCard({ note , onDelete, onUpdate}) {
         }
     };
 
-    const handleTag = (name:string, userId:number, noteId:number) => {
-        setIsModelOpen(false);
-    }
-
     return (
         <div>
             {isEditing ? (
@@ -98,7 +94,7 @@ export default function NoteCard({ note , onDelete, onUpdate}) {
                     </div>
                 </div>
             ) : (
-        <div className={`p-4 rounded-lg shadow-md ${isEditing ? 'bg-blue-100 ring-2 ring-blue-500' : 'bg-white hover:bg-gray-50'}`}>
+        <div onClick={() => setIsEditing(true)} className={`p-4 rounded-lg shadow-md ${isEditing ? 'bg-blue-100 ring-2 ring-blue-500' : 'bg-white hover:bg-gray-50'}`}>
                     <h3 className="text-lg font-semibold mb-2">{note.title}</h3>
                     <div className="text-gray-600 break-words">
                         {note.content}
@@ -106,14 +102,14 @@ export default function NoteCard({ note , onDelete, onUpdate}) {
                         <TagList userId={note.userId} noteId={note.id}/>
                         <div className='flex justify-between'>
                         <button
-                        className="mt-2 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors duration-300"
-                        onClick={() => setIsEditing(true)}
+                        className=" text-gray-500 hover:text-gray-600 transition-colors duration-300 rounded p-1 m-2"
+                        // onClick={() => setIsEditing(true)}
                         >
                         <EditIcon/>
                     </button>
                     
                     </div> 
-                                        <Toaster/>
+                    <Toaster/>
                 </div>
             )}
             </div>

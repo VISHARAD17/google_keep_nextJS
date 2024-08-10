@@ -47,7 +47,6 @@ const TagList = ({noteId, userId}) => {
 
     return(
         <div>
-            <p>Tags:</p>
             <div className="flex flex-wrap space-x-2">
                     {tags.map((tag) => (
                         <div
@@ -63,7 +62,7 @@ const TagList = ({noteId, userId}) => {
                     ))}
 
                         <AddIcon
-                        className="ml-2 bg-blue-400 p-1  text-white hover:bg-blue-600 cursor-pointer rounded-full mt-auto mb-auto"
+                        className=" bg-blue-400 p-1  text-white hover:bg-blue-600 cursor-pointer rounded-full mr-auto mt-auto mb-auto"
                         onClick={() => setIsModelOpen(true)} />
 
 
