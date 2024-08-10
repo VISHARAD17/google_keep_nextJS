@@ -1,8 +1,8 @@
 'use client'
 
 import React, { useState } from 'react';
-import { DELETE_NOTE, DELETE_TAG, UPDATE_NOTE } from './mutations';
-import { useMutation, useQuery } from '@apollo/client';
+import { DELETE_NOTE, UPDATE_NOTE, useGetAllTags } from './mutations';
+import { useMutation } from '@apollo/client';
 import AddTagModal from './AddTagModel';
 import TagList from '../components/TagList/TagList';
 import { Toaster } from 'react-hot-toast';
@@ -75,7 +75,7 @@ export default function NoteCard({ note , onDelete, onUpdate}) {
                         value={editedContent}
                         onChange={(e) => setEditedContent(e.target.value)}
                     />
-                        <TagList noteId={note.id}/>
+                        <TagList userId={note.userId} noteId={note.id}/>
                     <div className="flex justify-between">
                         <button
                             className="px-3 py-1 bg-green-500 text-white rounded hover:bg-green-600 transition-colors duration-300"
@@ -103,7 +103,7 @@ export default function NoteCard({ note , onDelete, onUpdate}) {
                     <div className="text-gray-600 break-words">
                         {note.content}
                     </div>
-                        <TagList noteId={note.id}/>
+                        <TagList userId={note.userId} noteId={note.id}/>
                         <div className='flex justify-between'>
                         <button
                         className="mt-2 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors duration-300"
@@ -111,21 +111,9 @@ export default function NoteCard({ note , onDelete, onUpdate}) {
                         >
                         <EditIcon/>
                     </button>
-                    <button
-                            className="mt-2 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors duration-300" 
-                            onClick={() => setIsModelOpen(true) }
-                        >
-                            <AddIcon/>
-                        </button>
+                    
                     </div> 
-                    <AddTagModal
-                        isOpen={isModalOpen}
-                        onClose={() => setIsModelOpen(false)}
-                        onAdd={handleTag}
-                        userId={note.userId}
-                        noteId={note.id}
-                    />
-                    <Toaster/>
+                                        <Toaster/>
                 </div>
             )}
             </div>

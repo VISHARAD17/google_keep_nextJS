@@ -12,7 +12,7 @@ const Dashboard = () => {
                 <AllTagList email={userEmail}/>
                 </div>  
                     
-                <div className="flex-1 bg-gray-200 p-4"><NoteListCom email={userEmail}/></div>
+                <div className="flex-1 bg-gray-200 p-4"><NoteListCom sort={"default"} email={userEmail}/></div>
             </div>
   )
 }

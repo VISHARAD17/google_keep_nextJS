@@ -10,8 +10,7 @@ const AddTagModal = ({isOpen, onClose, onAdd, userId, noteId}) => {
     const [addTagFunction] = useMutation(ADD_NEW_TAG_FOR_NOTE);
 
     const handleSubmit = async () => {
-        console.log(tag);
-        onAdd(tag);
+        
 
         try{
             const res = await addTagFunction({
@@ -21,7 +20,11 @@ const AddTagModal = ({isOpen, onClose, onAdd, userId, noteId}) => {
                     noteId: noteId
                 }
             })
-            console.log(res.errors);
+            const id = res.data.createTag.id;
+            const name = tag;
+            onAdd(id, name);
+            setTag('');
+            // onClose();
             location.reload();
 
         }catch(e){
