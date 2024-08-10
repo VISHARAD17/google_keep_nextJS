@@ -1,5 +1,6 @@
 import { dialogContentClasses } from "@mui/material";
 import { PrismaClient } from "@prisma/client"
+import { on } from "events";
 import { disconnect } from "process";
 const prisma = new PrismaClient();
 
@@ -71,6 +72,27 @@ export const tagMutaions = {
                     ]                }
             }
         })
+
+        const notesWithTag = await prisma.note.count({
+            where: {
+                tags: {
+                    some: {
+                        id: tagId
+                    }
+                }
+            }
+        });
+
+        // check if tag does not have any books then permanantely delete
+        if(notesWithTag === 0){
+            // deleteNote
+            const tag = await prisma.tag.delete({
+                where:{
+                    id:tagId
+                }
+            })
+            console.log(`permanantely deleted tag with id ${tag.id}`)
+        }
               
         console.log('tag deleted');
         return {msg: `tag deleted with tagId ${tagId}`};
