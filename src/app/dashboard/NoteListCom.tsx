@@ -40,9 +40,6 @@ const handleDeleteNote = (noteId) => {
     return (
         <div className="p-4">
             <div className="grid grid-cols-3 gap-2">
-                {/**{data?.getAllNotesByEmail.notes.map((note) => (
-                    <NoteCard key={note.id} note={note} />
-                ))}**/}
                 {noteData.map((note:any) => (
                 <NoteCard key={note.id} 
                         note={note} 
