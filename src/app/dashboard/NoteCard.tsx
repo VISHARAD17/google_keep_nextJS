@@ -91,7 +91,7 @@ export default function NoteCard({ note , onDelete, onUpdate}) {
                     </div>
                 </div>
             ) : (
-        <div onClick={() => setIsEditing(true)} className={`p-4 rounded-lg shadow-md ${isEditing ? 'bg-blue-100 ring-2 ring-blue-500' : 'bg-white hover:bg-gray-50'}`}>
+        <div className={`p-4 rounded-lg shadow-md ${isEditing ? 'bg-blue-100 ring-2 ring-blue-500' : 'bg-white hover:bg-gray-50'}`}>
                     <h3 className="text-lg font-semibold mb-2">{note.title}</h3>
                     <div className="text-gray-600 break-words">
                         {note.content}

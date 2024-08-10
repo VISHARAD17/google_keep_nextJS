@@ -53,7 +53,7 @@ const TagList = ({noteId, userId}) => {
                             key={tag.id}
                             className="flex items-center bg-green-100 text-green-700 px-3 py-1 rounded-full mb-2"
                         >
-                                <span>{tag.name}</span>
+                                <span>#{tag.name}</span>
                                 <CancelIcon
                                 className="ml-2 cursor-pointer"
                                 onClick={() => handleDelete({id:tag.id, noteId:noteId})}
