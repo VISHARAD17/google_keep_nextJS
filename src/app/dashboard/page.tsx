@@ -18,7 +18,7 @@ const Dashboard = () => {
     const {data:session, status} = useSession();
     const router = useRouter();
     const [userEmail, setUserEmail] = useState(""); 
-    const [sort, setSort] = useState("default");
+    const [sort, setSort] = useState("default"); // will be a list of tags
 
     useEffect(() => {
         if(status === 'unauthenticated'){
@@ -28,8 +28,7 @@ const Dashboard = () => {
         if(session){ 
             setUserEmail(session.user.email);
         }
-    },[session, router, status]);
-    
+    },[session, router, status]); 
     return (
     <div>
         {session &&

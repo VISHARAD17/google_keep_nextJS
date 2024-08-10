@@ -11,6 +11,7 @@ const AllTagList = ({email}) => {
     const handleCheckboxChange = (event:any) => {
         console.log(`checkbox is checked for value ${event.target.value}`)
     };
+    
     return(
         <div>
             {tags.map((tag:any) => (
