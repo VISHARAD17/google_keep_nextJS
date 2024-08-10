@@ -100,7 +100,7 @@ export default function NoteCard({ note , onDelete, onUpdate}) {
                         <div className='flex justify-between'>
                         <button
                         className=" text-gray-500 hover:text-gray-600 transition-colors duration-300 rounded p-1 m-2"
-                        // onClick={() => setIsEditing(true)}
+                        onClick={() => setIsEditing(true)}
                         >
                         <EditIcon/>
                     </button>
