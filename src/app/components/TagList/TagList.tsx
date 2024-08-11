@@ -39,7 +39,7 @@ const TagList = ({noteId, userId}) => {
         
     };
     const handleTag = (name:string, id:number) => {
-        setTags((prev) => [...prev, {name:name, id:id}])
+        setTags((prevTags) => [...prevTags, {name:name, id:id}])
         console.log(tags)
         setIsModelOpen(false);
     }
