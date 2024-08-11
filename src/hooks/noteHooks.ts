@@ -61,6 +61,7 @@ export const useGetAllNotes = ({id}) =>{
         }
     })
 }
+
 export const useGetAllNoteByEmail = ({email}) =>{
     return useQuery<{getAllNotesByEmail: {user: User, notes: [Note]}}>(GET_ALL_NOTES_AND_USER_BY_EMAIL, {
         variables:{
