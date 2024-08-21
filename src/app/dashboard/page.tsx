@@ -1,9 +1,11 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import { useSession } from 'next-auth/react';
-import {useRouter} from 'next/navigation';
+import {redirect, useRouter} from 'next/navigation';
 import NoteListCom from './NoteListCom';
 import AllTagList from '../components/TagList/AllTagList';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '../api/auth/[...nextauth]/route';
 
 const Dashboard = () => {
     // should be able to fetch from server side session for from client side session
@@ -12,13 +14,13 @@ const Dashboard = () => {
     // console.log(session)
     // if(!session){
     //     console.log(session);
-    //     redirect('/')
+    //     redirect('/error');
     // }
-    
+       
     const {data:session, status} = useSession();
     const router = useRouter();
     const [userEmail, setUserEmail] = useState(""); 
-    const [sort, setSort] = useState("default"); // will be a list of tags
+    const [sort, setSort] = useState("default");
 
     useEffect(() => {
         if(status === 'unauthenticated'){
@@ -28,7 +30,8 @@ const Dashboard = () => {
         if(session){ 
             setUserEmail(session.user.email);
         }
-    },[session, router, status]); 
+    },[session, router, status]);
+    
     return (
     <div>
         {session &&
