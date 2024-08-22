@@ -14,8 +14,11 @@ const Dashboard = () => {
     // console.log(session)
     // if(!session){
     //     console.log(session);
-    //     redirect('/error');
+    //     console.log('session')
+    //     redirect('/');
     // }
+    // const userEmail = session.user.email;
+    // const sort = 'default';
        
     const {data:session, status} = useSession();
     const router = useRouter();
