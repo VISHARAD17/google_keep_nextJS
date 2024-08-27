@@ -27,6 +27,7 @@ src
                 |- resolvers
                     |- notes
                     |- user
+                    |- Tag
                 |- typedefs
             |- auth
        |- components
