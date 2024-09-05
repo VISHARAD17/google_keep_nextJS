@@ -1,19 +1,20 @@
 ### Google keep clone using NextJS 14
 
-![1st-pic](/screenshots/pic1.png)
-![2nd-pic](/screenshots/pic2.png)
-![3rd-pic](/screenshots/pic3.png)
+![1st-pic](screenshots/pic1.png)
+![2nd-pic](screenshots/pic2.png)
+![3rd-pic](screenshots/pic3.png)
 
 
 #### Features
 - Authentication : 🔐 **Login** & 🔏 **Register** for creating a new user
-- 📝 **Notes** - Create, Update, Delete notes
-  * 🗒 **Simple Notes** - Update/delet text in a simple text mode
+- 📝 **Notes** - Create, Update, Delete notes ( CRUD operations)
+  * 🗒 **Simple Notes** - Update/delet text and title
   * add **Tags** for notes - ( add / remove )
 - server side and client side rendering
-- single end point graph API implementation for efficient CRUD operations to avoid over-fetching compared to traditional
+- single end point `Graph API` implementation for efficient CRUD operations to avoid over-fetching compared to traditional
   REST architecture.
 - nextJS api routes
+- nextJS file stucture for modular page structure
 
 #### Project Structure :
 ``` 
@@ -42,7 +43,7 @@ src
 ```
 
 #### Frontned :
-- React
+- React with Typescript
 - Apollo client
 - tailwindCSS
 
