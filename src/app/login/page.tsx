@@ -1,6 +1,4 @@
 'use client'
-import { PrismaClient } from "@prisma/client/extension";
-import { error } from "console";
 import { signIn, useSession } from "next-auth/react";
 import Link from "next/link"
 import { useEffect, useState } from "react";
