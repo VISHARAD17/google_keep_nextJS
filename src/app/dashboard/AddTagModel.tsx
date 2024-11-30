@@ -19,8 +19,6 @@ const AddTagModal = ({isOpen, onClose, onAdd, userId, noteId}) => {
                     noteId: noteId
                 }
             })
-            const id = res.data.createTag.id;
-            const name = tag;
             onAdd(tag);
             setTag('');
             onClose();
