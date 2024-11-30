@@ -3,7 +3,13 @@
 ```bash
 npx prisma migrate dev --name init
 ```
+- prisma studio
+```bash
+npx primsa studio
+```
 
+
+- schemas:
 
 ### User
 
@@ -25,10 +31,5 @@ npx prisma migrate dev --name init
 ### tag
 - id
 - name
-- userId
-- tags[]
-
-
-setp by step
-- add authorization to display user information on dashboard 
-- add 
+- userId ( many to one)
+- note [] ( many to many )
