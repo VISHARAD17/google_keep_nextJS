@@ -97,11 +97,12 @@ export const useUpdateNote = async({id, title, content}) => {
 }
 
 export const useGetAllTags = (noteId:number) => {
-  const { loading, error, data } = useQuery(GET_ALL_TAGS_FOR_NOTE, {
-    variables: { noteId },
-  });
-
-  return { loading, error, tags: data?.getAllTagsForNote || [] }; // Directly returning the tags array
+    const { loading, error, data, refetch } = useQuery(GET_ALL_TAGS_FOR_NOTE, {
+        variables: { noteId },
+    });
+    
+    // note: refetch is useful state handeling
+    return { loading, error, refetch, tags: data?.getAllTagsForNote || [] }; // Directly returning the tags array
 };
 
 export const useGetOneUserByEmail = async({email}) => {

@@ -53,15 +53,6 @@ export const UPDATE_NOTE = gql`
     }
 `
 
-
-export const useGetAllNotes = ({id}) =>{
-    return useQuery<{getAllNoteForUser: [Note]}>(GET_ALL_NOTES, {
-        variables:{
-            userId: id
-        }
-    })
-}
-
 export const useGetAllNoteByEmail = ({email}) =>{
     return useQuery<{getAllNotesByEmail: {user: User, notes: [Note]}}>(GET_ALL_NOTES_AND_USER_BY_EMAIL, {
         variables:{

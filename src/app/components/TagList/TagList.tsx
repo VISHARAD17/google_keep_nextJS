@@ -11,14 +11,14 @@ const TagList = ({noteId, userId}) => {
     console.log(`getting tags for noteId ${noteId}`)
 
     const [isModalOpen, setIsModelOpen] = useState(false);
-    const tagsData = useGetAllTags(noteId);
-    const [tags, setTags] = useState(tagsData?.tags);
+    const {refetch, tags:tagsData} = useGetAllTags(noteId);
+    const [tags, setTags] = useState(tagsData);
 
     const [deleteTagFunction] = useMutation(DELETE_TAG);
 
     useEffect(() => {
-        if(tagsData && tagsData.tags){
-            setTags(tagsData.tags);
+        if(tagsData){
+            setTags(tagsData);
         }
     }, [tagsData]);
 
@@ -30,16 +30,18 @@ const TagList = ({noteId, userId}) => {
                 tagId: id,
                 noteId:noteId
             }
-        })
-        setTags(tags.filter(tag => tag.id !== id));
-        location.reload();
+        }).then(() =>{
+                setTags(prevTags => prevTags.filter((tag) => tag.id !== id));
+            })
+        // location.reload();
         }catch(error){
             console.log(`${error}`);
         }
         
     };
-    const handleTag = (name:string, id:number) => {
-        setTags((prevTags) => [...prevTags, {name:name, id:id}])
+    const handleTag = async (tag) => {
+        setTags((prevTags) => [...prevTags, tag]); 
+        await refetch();
         console.log(tags)
         setIsModelOpen(false);
     }
@@ -48,7 +50,7 @@ const TagList = ({noteId, userId}) => {
     return(
         <div>
             <div className="flex flex-wrap space-x-2">
-                    {tags.map((tag) => (
+                    {tags?.map((tag:any) => (
                         <div
                             key={tag.id}
                             className="flex items-center bg-green-100 text-green-700 px-3 py-1 rounded-full mb-2"

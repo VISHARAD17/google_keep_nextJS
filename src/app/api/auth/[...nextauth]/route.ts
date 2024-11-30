@@ -15,27 +15,27 @@ export const authOptions = {
             },
             async authorize(credentials:any): Promise<any>{
                 const prisma = new PrismaClient();
-                 try{
-                    const user = await prisma.user.findUnique({
-                        where:{
-                            email: credentials.email
-                        }
-                    })
-                    if(user){
-                        if(credentials.password == user.password){
-                            return {
-                                id: user.id,
-                                email:user.email,
-                                name:user.name
+                    try{
+                        const user = await prisma.user.findUnique({
+                            where:{
+                                email: credentials.email
+                            }
+                        })
+                        if(user){
+                            if(credentials.password == user.password){
+                                return {
+                                    id: user.id,
+                                    email:user.email,
+                                    name:user.name
+                                }
+                            }
+                            else{
+                                throw new Error('password does not match');
                             }
                         }
-                        else{
-                            throw new Error('password does not match');
-                        }
+                    }catch (e){
+                        throw new Error(`error while logging in : ${e}`);
                     }
-                }catch (e){
-                    throw new Error(`error while logging in : ${e}`);
-                }
             }
         }),
         GithubProvider({

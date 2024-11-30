@@ -10,7 +10,6 @@ const AddTagModal = ({isOpen, onClose, onAdd, userId, noteId}) => {
     const [addTagFunction] = useMutation(ADD_NEW_TAG_FOR_NOTE);
 
     const handleSubmit = async () => {
-        
 
         try{
             const res = await addTagFunction({
@@ -22,16 +21,19 @@ const AddTagModal = ({isOpen, onClose, onAdd, userId, noteId}) => {
             })
             const id = res.data.createTag.id;
             const name = tag;
-            onAdd(id, name);
+            onAdd(tag);
             setTag('');
-            // onClose();
-            location.reload();
+            onClose();
+            // location.reload();
 
         }catch(e){
             toast.error(`errpr saving ${e}`);
             console.log(`error saving : ${e}`);
         }
     }
+
+    
+
     if(!isOpen) return null;
 
     return (
