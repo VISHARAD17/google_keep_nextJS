@@ -38,7 +38,8 @@ model Tag {
     userId Int
     notes Note[] 
 
+    @@unique([userId, name])
+
     @@map("t_tag")
 
-    @@unique([userId, name])
 }
