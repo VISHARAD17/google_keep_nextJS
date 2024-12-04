@@ -1,4 +1,5 @@
 'use client'
+// New user register page
 
 import Link from "next/link";
 import { REGISTER_USER } from "../../hooks/registerUser";

@@ -1,6 +1,8 @@
 import { gql, useQuery } from "@apollo/client";
 import { Note, User } from "@/lib/definitions";
 
+// since we do not have user id from the UI, use find
+// by email instead
 const GET_ALL_NOTES = gql`
     query getAll($userId: Int){
         getAllNoteForUser(userId: $userId){

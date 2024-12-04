@@ -1,4 +1,4 @@
-import { warn } from "console";
+// interfaces for all the objects used in the project
 
 export type Invoice = {
     id:string;
