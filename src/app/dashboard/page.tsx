@@ -5,7 +5,6 @@ import {redirect, useRouter} from 'next/navigation';
 import NoteListCom from './NoteListCom';
 import AllTagList from '../components/TagList/AllTagList';
 import { getServerSession } from 'next-auth';
-import { authOptions } from '../api/auth/[...nextauth]/route';
 
 const Dashboard = () => {
     // should be able to fetch from server side session for from client side session

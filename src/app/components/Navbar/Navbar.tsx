@@ -6,6 +6,11 @@ import Image from 'next/image';
 
 import googleKeepLogo from '../../../../public/google_keep_logo.png'
 
+const handleLogout = () => {
+    if(confirm("Are you sure, you want to logout ?")){
+        signOut();
+    }
+}
 const Navbar = () => {
     const { data: session } = useSession();
     return (
@@ -45,7 +50,7 @@ const Navbar = () => {
                                 <button
                                     className="hidden select-none rounded-lg bg-gradient-to-tr from-gray-900 to-gray-800 py-2 px-4 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none lg:inline-block"
                                     type="button">
-                                    <span><button onClick={() => {signOut()}}>Logout</button></span>
+                                    <span><button onClick={handleLogout}>Logout</button></span>
                                 </button>
                             </div> )}
                         </div>

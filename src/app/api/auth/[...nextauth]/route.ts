@@ -4,7 +4,7 @@ import { Account, User as AuthUser } from "next-auth";
 import { PrismaClient } from "@prisma/client"
 import NextAuth from "next-auth/next";
 
-export const authOptions = {
+const authOptions = {
     providers:[
         CredentialsProvider({
             id:"credentials",
@@ -33,17 +33,18 @@ export const authOptions = {
                                 throw new Error('password does not match');
                             }
                         }
-                    }catch (e){
-                        throw new Error(`error while logging in : ${e}`);
-                    }
-            }
+                }catch (e){
+                    throw new Error(`error while logging in : ${e}`);
+                }
+            },
         }),
         GithubProvider({
             clientId:process.env.GITHUB_ID?? "",
             clientSecret: process.env.GITHUB_SECRET??""
         })
-    ]
-}
+    ],
+    secret : process.env.NEXTAUTH_SECRET,
+};
 
-export const handler = NextAuth(authOptions)
-export {handler as GET, handler as POST}
+const handler = NextAuth(authOptions);
+export { handler as GET, handler as POST }

@@ -63,3 +63,15 @@ run the application
 ```bash
 yarn dev
 ```
+Build docker image
+```bash 
+docker build -t google-keep .
+```
+
+run the docker container
+```bash
+bash run.sh
+```
+after running get the container id and kill the container 
+- get the id `docker ps`
+- kill the containern `docker stop <id>`
