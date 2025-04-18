@@ -33,7 +33,7 @@ const Register = () => {
                 router.push("/login")
             }
         } catch(error){
-            console.log("some error")
+            console.log("Error whiile registering new user details : " + error);
         }
     }
     

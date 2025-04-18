@@ -18,14 +18,13 @@ const AddNoteModal = ({ isOpen, onClose, onAdd , userId}) => {
                     userId: userId,
                     title: title,
                     content:content
-                } })
+                }
+            })
             // location.reload();
-
             // const newNote = res.data?.note
             onAdd(title, content);
             setTitle('');
             setContent('');
-
         }catch(err){
             console.log(`error while saving note, error : ${err}`);
         }

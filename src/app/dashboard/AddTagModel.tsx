@@ -22,10 +22,10 @@ const AddTagModal = ({isOpen, onClose, onAdd, userId, noteId}) => {
             onAdd(tag);
             setTag('');
             onClose();
-            // location.reload();
+            //location.reload();
 
         }catch(e){
-            toast.error(`errpr saving ${e}`);
+            toast.error(`erroe saving ${e}`);
             console.log(`error saving : ${e}`);
         }
     }

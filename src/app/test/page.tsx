@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import NoteListCom from '../dashboard/NoteListCom';
 import TagList from '../components/TagList/TagList';
 import AllTagList from '../components/TagList/AllTagList';

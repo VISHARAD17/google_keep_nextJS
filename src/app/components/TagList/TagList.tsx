@@ -33,7 +33,7 @@ const TagList = ({noteId, userId}) => {
         }).then(() =>{
                 setTags(prevTags => prevTags.filter((tag) => tag.id !== id));
             })
-        // location.reload();
+         //location.reload();
         }catch(error){
             console.log(`${error}`);
         }
