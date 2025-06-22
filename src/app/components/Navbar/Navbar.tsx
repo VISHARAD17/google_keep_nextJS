@@ -11,6 +11,7 @@ const handleLogout = () => {
         signOut();
     }
 }
+
 const Navbar = () => {
     const { data: session } = useSession();
     return (
